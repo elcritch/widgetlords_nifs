@@ -17,25 +17,25 @@ static uint8_t handles_len = 0;
 
 static uint8_t initialized = 0;
 
-void gpio_init()
+int8_t gpio_init()
 {
   if(initialized)
   {
-    return;
+    return 0;
   }
 
 	fd = open("/dev/gpiochip0", O_RDWR);
 	if(fd < 0)
 	{
 		printf("Unable to open /dev/gpiochip0: %s\n", strerror(errno));
-		return;
+		return ERR_GPIO_FILE_DESCRIPTOR;
 	}
 
 	struct gpiochip_info info;
 	if(ioctl(fd, GPIO_GET_CHIPINFO_IOCTL, &info) < 0)
 	{
 		printf("GPIO failure: %s\n", strerror(errno));
-		return;
+		return ERR_GPIO_CHIP_INFO;
 	}
 
 	// printf("GPIO chip name: %s\n", info.name);
@@ -57,7 +57,7 @@ void gpio_init()
 		if(ioctl(fd, GPIO_GET_LINEINFO_IOCTL, &info2) < 0)
 		{
 			printf("GPIO failure: %s\n", strerror(errno));
-			return;
+			return ERR_GPIO_PIN_INFO;
 		}
 
 		// printf("GPIO Line %d name: %s\n", i, info2.name);
@@ -85,13 +85,14 @@ void gpio_init()
 	// printf("GPIO chip lines: %d\n", info.lines);
 
   initialized = 1;
+  return 0;
 }
 
-void gpio_configure(uint32_t pin, uint8_t flags)
+int8_t gpio_configure(uint32_t pin, uint8_t flags)
 {
   if(pin >= handles_len) // avoid segfaults
   {
-    return;
+    return ERR_GPIO_PIN_NUMBER_INVALID;
   }
   if(handles[pin] > 0) // if we are reconfiguring a GPIO with a handle make sure to free it
   {
@@ -116,7 +117,7 @@ void gpio_configure(uint32_t pin, uint8_t flags)
 	if(ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &request) < 0)
 	{
 		printf("GPIO failure: %s\n", strerror(errno));
-		return;
+		return ERR_GPIO_PIN_LINEHANDLE;
 	}
 
   handles[pin] = request.fd;
@@ -127,11 +128,11 @@ void gpio_configure(uint32_t pin, uint8_t flags)
   // }
 }
 
-void gpio_write(uint32_t pin, uint8_t value)
+int8_t gpio_write(uint32_t pin, uint8_t value)
 {
   if(pin >= handles_len) // avoid segfaults
   {
-    return;
+    return ERR_GPIO_PIN_NUMBER_INVALID;
   }
 
   struct gpiohandle_data data;
@@ -141,7 +142,7 @@ void gpio_write(uint32_t pin, uint8_t value)
   if(ioctl(handles[pin], GPIOHANDLE_SET_LINE_VALUES_IOCTL, &data) < 0)
 	{
 		printf("GPIO failure: %s\n", strerror(errno));
-		return;
+		return ERR_GPIO_PIN_INVALID;
 	}
 }
 
@@ -149,7 +150,7 @@ int8_t gpio_read(uint32_t pin)
 {
   if(pin >= handles_len) // avoid segfaults
   {
-    return -1;
+    return ERR_GPIO_PIN_NUMBER_INVALID;
   }
 
   struct gpiohandle_data data;
@@ -158,7 +159,7 @@ int8_t gpio_read(uint32_t pin)
   if(ioctl(handles[pin], GPIOHANDLE_GET_LINE_VALUES_IOCTL, &data) < 0)
 	{
 		printf("GPIO failure: %s\n", strerror(errno));
-		return -1;
+		return ERR_GPIO_PIN_INVALID;
 	}
 
   return data.values[0];
