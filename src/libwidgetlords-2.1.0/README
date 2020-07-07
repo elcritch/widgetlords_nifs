@@ -1,0 +1,1 @@
+dtoverlay=spi0-cs,cs0_pin=27,cs1_pin=28

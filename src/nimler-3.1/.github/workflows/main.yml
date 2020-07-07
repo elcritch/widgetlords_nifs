@@ -1,0 +1,30 @@
+name: build-x64
+
+on:
+  push:
+    branches: [ develop, master ]
+  pull_request:
+    branches: [ develop, master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        tuple:
+          - otp: '22.2'
+            elixir: '1.10.2'
+            nim: '1.2.0'
+    name: OTP ${{matrix.tuple.otp}} - Elixir ${{matrix.tuple.elixir}} - Nim ${{matrix.tuple.nim}}
+    runs-on: ubuntu-18.04
+    steps:
+    - run: uname -a
+    - uses: actions/checkout@v2
+    - uses: actions/setup-elixir@v1.2.0
+      with:
+          otp-version: ${{matrix.tuple.otp}}
+          elixir-version: ${{matrix.tuple.elixir}}
+    - uses: jiro4989/setup-nim-action@v1.0.2
+      with:
+          nim-version: ${{matrix.tuple.nim}}
+    - run: NIMLER_BUILD_RELEASE=1 nimble build_all
+    - run: nimble test_all
