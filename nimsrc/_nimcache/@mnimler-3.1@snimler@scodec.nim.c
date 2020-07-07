@@ -6,8 +6,8 @@
 /* section: NIM_merge_HEADERS */
 
 #include "nimbase.h"
-#include "erl_nif.h"
 #include <string.h>
+#include "erl_nif.h"
 #undef LANGUAGE_C
 #undef MIPSEB
 #undef MIPSEL
@@ -35,13 +35,17 @@
       FR_.line = n; FR_.filename = file;
   
 /* section: NIM_merge_FORWARD_TYPES */
+typedef struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w;
 typedef struct tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g;
 typedef struct NimStrPayload NimStrPayload;
 typedef struct NimStringV2 NimStringV2;
 typedef struct tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA;
-typedef struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w;
 
 /* section: NIM_merge_TYPES */
+struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w {
+NI32 val;
+NIM_BOOL has;
+};
 struct NimStrPayload {
 NI cap;
 NIM_CHAR data[SEQ_DECL_SIZE];
@@ -58,49 +62,48 @@ struct tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA {
 NF val;
 NIM_BOOL has;
 };
-struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w {
-NI32 val;
-NIM_BOOL has;
-};
 
 /* section: NIM_merge_PROC_HEADERS */
-static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s);
-static N_INLINE(void, nimFrame)(TFrame* s);
-N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
-static N_INLINE(void, popFrame)(void);
-static N_INLINE(ErlNifBinary, str_to_bin__9bJMWcociSW0T9bXxd0tZkAgcodec)(NimStringV2 str);
 static N_INLINE(void, nimZeroMem)(void* p, NI size);
 static N_INLINE(void, nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory)(void* a, int v, NI size);
 static N_INLINE(NIM_BOOL*, nimErrorFlag)(void);
+static N_INLINE(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, some__rLoFggCR1IB0WW10Qc9bJ8woptions)(NI32 val);
+static N_INLINE(void, nimFrame)(TFrame* s);
+N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
+static N_INLINE(void, popFrame)(void);
+N_LIB_PRIVATE N_NOINLINE(void, raiseRangeErrorI)(NI64 i, NI64 a, NI64 b);
+static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s);
+static N_INLINE(ErlNifBinary, str_to_bin__9bJMWcociSW0T9bXxd0tZkAgcodec)(NimStringV2 str);
 N_LIB_PRIVATE N_NOINLINE(void, raiseIndexError2)(NI i, NI n);
 static N_INLINE(tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA, some__kPtS9b5AadDEHfYbuY1WOZwoptions)(NF val);
-static N_INLINE(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, some__rLoFggCR1IB0WW10Qc9bJ8woptions)(NI32 val);
-N_LIB_PRIVATE N_NOINLINE(void, raiseRangeErrorI)(NI64 i, NI64 a, NI64 b);
 
 /* section: NIM_merge_VARS */
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 extern NIM_THREADVAR NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_THREADVAR TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 
 /* section: NIM_merge_PROCS */
-static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s) {
-	NCSTRING result;
-	result = (NCSTRING)0;
-	{
-		if (!(s.len == ((NI) 0))) goto LA3_;
-		result = "";
-	}
-	goto LA1_;
-	LA3_: ;
-	{
-		result = ((NCSTRING) ((*s.p).data));
-	}
-	LA1_: ;
+static N_INLINE(void, nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory)(void* a, int v, NI size) {
+	void* T1_;
+	T1_ = (void*)0;
+	T1_ = memset(a, v, ((size_t) (size)));
+}
+static N_INLINE(NIM_BOOL*, nimErrorFlag)(void) {
+	NIM_BOOL* result;
+	result = (NIM_BOOL*)0;
+	result = (&nimInErrorMode__759bT87luu8XGcbkw13FUjA);
 	return result;
+}
+static N_INLINE(void, nimZeroMem)(void* p, NI size) {
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
+	nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory(p, ((int) 0), size);
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	}BeforeRet_: ;
 }
 static N_INLINE(void, nimFrame)(TFrame* s) {
 	{
@@ -123,6 +126,71 @@ static N_INLINE(void, nimFrame)(TFrame* s) {
 }
 static N_INLINE(void, popFrame)(void) {
 	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
+}
+static N_INLINE(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, some__rLoFggCR1IB0WW10Qc9bJ8woptions)(NI32 val) {
+	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w result;
+	nimfr_("some", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	nimZeroMem((void*)(&result), sizeof(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w));
+	nimln_(121, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	result.has = NIM_TRUE;
+	nimln_(122, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	result.val = val;
+	popFrame();
+	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, from_term__zyO1yRfTECDMV9a6o3d00hQ)(ErlNifEnv* env, unsigned long long term) {
+	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w result;
+	long res;
+NIM_BOOL* nimErr_;
+	nimfr_("from_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+{nimErr_ = nimErrorFlag();
+	nimZeroMem((void*)(&result), sizeof(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w));
+	res = (long)0;
+	nimln_(61, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	{
+		NIM_BOOL T3_;
+		T3_ = (NIM_BOOL)0;
+		T3_ = enif_get_long(env, term, (&res));
+		if (!T3_) goto LA4_;
+		nimln_(62, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+		if ((res) < ((NI32) (-2147483647 -1)) || (res) > ((NI32) 2147483647)){ raiseRangeErrorI(res, ((NI32) (-2147483647 -1)), ((NI32) 2147483647)); goto BeforeRet_;
+}
+		result = some__rLoFggCR1IB0WW10Qc9bJ8woptions(((NI32) (res)));
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	}
+	LA4_: ;
+	}BeforeRet_: ;
+	popFrame();
+	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__pJdsNsvteHR7m7nv0yKxZQ)(ErlNifEnv* env, NI32 V) {
+	unsigned long long result;
+	nimfr_("to_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = (unsigned long long)0;
+	nimln_(64, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = enif_make_long(env, ((long) (V)));
+	popFrame();
+	return result;
+}
+static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s) {
+	NCSTRING result;
+	result = (NCSTRING)0;
+	{
+		if (!(s.len == ((NI) 0))) goto LA3_;
+		result = "";
+	}
+	goto LA1_;
+	LA3_: ;
+	{
+		result = ((NCSTRING) ((*s.p).data));
+	}
+	LA1_: ;
+	return result;
 }
 N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg)(ErlNifEnv* env, tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g V) {
 	unsigned long long result;
@@ -152,24 +220,6 @@ N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg)(E
 	LA1_: ;
 	popFrame();
 	return result;
-}
-static N_INLINE(void, nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory)(void* a, int v, NI size) {
-	void* T1_;
-	T1_ = (void*)0;
-	T1_ = memset(a, v, ((size_t) (size)));
-}
-static N_INLINE(NIM_BOOL*, nimErrorFlag)(void) {
-	NIM_BOOL* result;
-	result = (NIM_BOOL*)0;
-	result = (&nimInErrorMode__759bT87luu8XGcbkw13FUjA);
-	return result;
-}
-static N_INLINE(void, nimZeroMem)(void* p, NI size) {
-NIM_BOOL* nimErr_;
-{nimErr_ = nimErrorFlag();
-	nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory(p, ((int) 0), size);
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	}BeforeRet_: ;
 }
 static N_INLINE(ErlNifBinary, str_to_bin__9bJMWcociSW0T9bXxd0tZkAgcodec)(NimStringV2 str) {
 	ErlNifBinary result;
@@ -252,56 +302,6 @@ N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__GdqrB2DGxFMVhU2CgZ9c33A)(Er
 	nimln_(88, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
 "imler/codec.nim");
 	result = enif_make_double(env, V);
-	popFrame();
-	return result;
-}
-static N_INLINE(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, some__rLoFggCR1IB0WW10Qc9bJ8woptions)(NI32 val) {
-	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w result;
-	nimfr_("some", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	nimZeroMem((void*)(&result), sizeof(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w));
-	nimln_(121, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	result.has = NIM_TRUE;
-	nimln_(122, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	result.val = val;
-	popFrame();
-	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, from_term__zyO1yRfTECDMV9a6o3d00hQ)(ErlNifEnv* env, unsigned long long term) {
-	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w result;
-	long res;
-NIM_BOOL* nimErr_;
-	nimfr_("from_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
-"imler/codec.nim");
-{nimErr_ = nimErrorFlag();
-	nimZeroMem((void*)(&result), sizeof(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w));
-	res = (long)0;
-	nimln_(61, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
-"imler/codec.nim");
-	{
-		NIM_BOOL T3_;
-		T3_ = (NIM_BOOL)0;
-		T3_ = enif_get_long(env, term, (&res));
-		if (!T3_) goto LA4_;
-		nimln_(62, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
-"imler/codec.nim");
-		if ((res) < ((NI32) (-2147483647 -1)) || (res) > ((NI32) 2147483647)){ raiseRangeErrorI(res, ((NI32) (-2147483647 -1)), ((NI32) 2147483647)); goto BeforeRet_;
-}
-		result = some__rLoFggCR1IB0WW10Qc9bJ8woptions(((NI32) (res)));
-		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	}
-	LA4_: ;
-	}BeforeRet_: ;
-	popFrame();
-	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__pJdsNsvteHR7m7nv0yKxZQ)(ErlNifEnv* env, NI32 V) {
-	unsigned long long result;
-	nimfr_("to_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
-"imler/codec.nim");
-	result = (unsigned long long)0;
-	nimln_(64, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
-"imler/codec.nim");
-	result = enif_make_long(env, ((long) (V)));
 	popFrame();
 	return result;
 }

@@ -50,8 +50,8 @@ func add_numbers(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
 resources.export_nifs(
   "Elixir.WidgetLordsNifs.Controller",
   [
+    add_numbers,
     create_resource.to_nif(name="create_resource", arity=0, flags=ERL_NIF_DIRTY_IO),
     update_resource.to_nif(name="update_resource", arity=3),
-    add_numbers,
   ]
 )

@@ -2,6 +2,7 @@ defmodule WidgetLordsNifs.Controller do
   require Logger
   @on_load :load_nif
 
+  def add_numbers(_a, _b), do: raise "not implemented"
   def create_resource(), do: raise "not implemented"
   def update_resource(_a, _b, _c), do: raise "not implemented"
 
