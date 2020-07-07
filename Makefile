@@ -22,12 +22,12 @@ ifdef MIX_APP_PATH
 APP_PATH := $(MIX_APP_PATH)
 else
 APP_PATH := ./
-ERL_EI_INCLUDE_DIR 
-ERL_EI_LIBDIR 
 endif
 
-ifdef ERL_EI_LIBDIR
+ifndef ERL_EI_LIBDIR
 ERL_EI := $(shell elixir test/erl_bases.exs)
+ERL_EI_INCLUDE_DIR := $(ERL_EI)/include
+ERL_EI_LIBDIR := $(ERL_EI)/lib/
 endif
 
 PREFIX = $(APP_PATH)/priv
@@ -55,12 +55,13 @@ else
 endif
 
 # Set Erlang-specific compile and linker flags
-ERL_CFLAGS ?= -I$(ERL_EI_INCLUDE_DIR)
+ERL_CFLAGS  = -I$(ERL_EI_INCLUDE_DIR)
 ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
 NIM_SRC := $(wildcard src/_nimcache/*.c)
 NIM_HDRS := $(wildcard src/_nimcache/*.h)
-OBJ = $(NIM_SRC:src/_nimcache/_nimcache/%.c=$(BUILD)/%.o)
+OBJ = $(NIM_SRC:src/_nimcache/%.c=$(BUILD)/%.o)
+
 
 calling_from_make:
 	mix compile
@@ -70,6 +71,9 @@ all: install
 install: $(PREFIX) $(BUILD) $(NIF)
 
 $(OBJ): $(HEADERS) Makefile
+
+$(BUILD)/%.o: src/_nimcache/%.c
+	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
 $(BUILD)/%.o: src/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
@@ -81,6 +85,11 @@ $(PREFIX) $(BUILD):
 	mkdir -p $@
 
 clean:
+	@echo ERL_EI_INCLUDE_DIR: $(ERL_EI_INCLUDE_DIR)
+	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
+	@echo ERL_CFLAGS: $(ERL_CFLAGS)
+	@echo ERL_LDFLAGS: $(ERL_LDFLAGS)
+	@echo OBJ: $(OBJ)
 	$(RM) $(NIF) $(OBJ)
 
 .PHONY: all clean calling_from_make install
