@@ -18,8 +18,20 @@
 # LDFLAGS	linker flags for linking all binaries
 # ERL_LDFLAGS	additional linker flags for projects referencing Erlang libraries
 
-PREFIX = $(MIX_APP_PATH)/priv
-BUILD  = $(MIX_APP_PATH)/obj
+ifdef MIX_APP_PATH
+APP_PATH := $(MIX_APP_PATH)
+else
+APP_PATH := ./
+ERL_EI_INCLUDE_DIR 
+ERL_EI_LIBDIR 
+endif
+
+ifdef ERL_EI_LIBDIR
+ERL_EI := $(shell elixir test/erl_bases.exs)
+endif
+
+PREFIX = $(APP_PATH)/priv
+BUILD  = $(APP_PATH)/obj
 
 NIF = $(PREFIX)/widgetlords_nifs.so
 
@@ -41,6 +53,10 @@ else
 	LDFLAGS += -fPIC -shared
 	CFLAGS += -fPIC
 endif
+
+# Set Erlang-specific compile and linker flags
+ERL_CFLAGS ?= -I$(ERL_EI_INCLUDE_DIR)
+ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
 NIM_SRC := $(wildcard src/_nimcache/*.c)
 NIM_HDRS := $(wildcard src/_nimcache/*.h)
