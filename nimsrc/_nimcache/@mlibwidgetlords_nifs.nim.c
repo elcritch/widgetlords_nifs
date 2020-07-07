@@ -35,7 +35,6 @@
       FR_.line = n; FR_.filename = file;
   
 /* section: NIM_merge_FORWARD_TYPES */
-typedef struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w;
 typedef struct tyObject_Option__B2fjAwynjxmQWpd3bed9cLw tyObject_Option__B2fjAwynjxmQWpd3bed9cLw;
 typedef struct tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA;
 typedef struct tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g;
@@ -51,16 +50,13 @@ typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA tySequence__uB9b75OUPRENsBAu4
 typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA_Content tySequence__uB9b75OUPRENsBAu4AnoePA_Content;
 typedef struct TNimNode TNimNode;
 typedef struct tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA;
+typedef struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w;
 typedef struct tyObject_StackTraceEntry__oLyohQ7O2XOvGnflOss8EA tyObject_StackTraceEntry__oLyohQ7O2XOvGnflOss8EA;
 
 /* section: NIM_merge_TYPES */
 typedef N_NIMCALL_PTR(unsigned long long, tyProc__wReIQfculrbhygf8OIqnWw) (ErlNifEnv* env, int argc, unsigned long long* argv);
 typedef NI32 tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag;
 typedef ErlNifFunc tyArray__AyK9b5FdRVQxH3YlebcL8vg[3];
-struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w {
-NI32 val;
-NIM_BOOL has;
-};
 struct tyObject_Option__B2fjAwynjxmQWpd3bed9cLw {
 tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* val;
 };
@@ -129,6 +125,10 @@ struct tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA {
 NF val;
 NIM_BOOL has;
 };
+struct tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w {
+NI32 val;
+NIM_BOOL has;
+};
 struct tyObject_StackTraceEntry__oLyohQ7O2XOvGnflOss8EA {
 NCSTRING procname;
 NI line;
@@ -146,18 +146,12 @@ struct tySequence__uB9b75OUPRENsBAu4AnoePA_Content { NI cap; tyObject_StackTrace
 static N_INLINE(void, nimZeroMem)(void* p, NI size);
 static N_INLINE(void, nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory)(void* a, int v, NI size);
 static N_INLINE(NIM_BOOL*, nimErrorFlag)(void);
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, colonanonymous___dPeDdCnMoZuCgye5LFho4w)(ErlNifEnv* env, int argc, unsigned long long* argv);
-static N_INLINE(NI32, get__eSiZpud1fqbLE55rzdD3SQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self, NI32 otherwise);
-static N_INLINE(NIM_BOOL, isSome__mick6IKW7paK9bdpVJrnJgQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self);
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, create_resource__dPeDdCnMoZuCgye5LFho4w)(ErlNifEnv* env, int argc, unsigned long long* argv);
+N_LIB_PRIVATE N_NIMCALL(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw, new_resource__r9byBO1Ma6IFzl2uk8SWYUw)(ErlNifEnv* env);
+static N_INLINE(NIM_BOOL, isNone__9c8EzI5kW85Knaeyi5R21aAoptions)(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw self);
 static N_INLINE(void, nimFrame)(TFrame* s);
 N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
 static N_INLINE(void, popFrame)(void);
-N_LIB_PRIVATE N_NIMCALL(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, from_term__zyO1yRfTECDMV9a6o3d00hQ)(ErlNifEnv* env, unsigned long long term);
-N_LIB_PRIVATE N_NOINLINE(void, raiseOverflow)(void);
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__pJdsNsvteHR7m7nv0yKxZQ)(ErlNifEnv* env, NI32 V);
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, create_resource__dPeDdCnMoZuCgye5LFho4w_2)(ErlNifEnv* env, int argc, unsigned long long* argv);
-N_LIB_PRIVATE N_NIMCALL(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw, new_resource__r9byBO1Ma6IFzl2uk8SWYUw)(ErlNifEnv* env);
-static N_INLINE(NIM_BOOL, isNone__9c8EzI5kW85Knaeyi5R21aAoptions)(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw self);
 N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg)(ErlNifEnv* env, tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g V);
 N_LIB_PRIVATE N_NIMCALL(void, X5BX5Deq___13i9ch7tdtUm3gbkon5nlrA)(unsigned long long* a, tyObject_HSlice__i2Z64wI53ZCthDOLA9cD8mQ x, unsigned long long* b, NI bLen_0);
 static N_INLINE(tyObject_HSlice__i2Z64wI53ZCthDOLA9cD8mQ, dotdot___u9aQHCw3CKRH79cmJFUBLU9agsystem)(NI a, NI b);
@@ -167,13 +161,19 @@ static N_INLINE(tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA**, get__CynsSRaAL9c
 N_LIB_PRIVATE N_NIMCALL(void*, nimNewObj)(NI size);
 N_LIB_PRIVATE N_NIMCALL(void, raiseExceptionEx)(Exception* e, NCSTRING ename, NCSTRING procname, NCSTRING filename, NI line);
 N_LIB_PRIVATE N_NIMCALL(unsigned long long, release_resource__303jJuWZQeBLgwKlpOxU4Q)(ErlNifEnv* env, tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* V);
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, update_resource__dPeDdCnMoZuCgye5LFho4w_3)(ErlNifEnv* env, int argc, unsigned long long* argv);
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, update_resource__dPeDdCnMoZuCgye5LFho4w_2)(ErlNifEnv* env, int argc, unsigned long long* argv);
 N_LIB_PRIVATE N_NIMCALL(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw, get_resource__Wr1CzN6z01R3q9bCccSJpiA)(ErlNifEnv* env, unsigned long long term);
 N_LIB_PRIVATE N_NIMCALL(tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA, from_term__7J47caK3FAXHXyAsCwrmjA)(ErlNifEnv* env, unsigned long long term);
 static N_INLINE(NIM_BOOL, isNone__9ceQCeoBXFptucCVWq2Pbswoptions)(tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA self);
 N_LIB_PRIVATE N_NIMCALL(NF, update__hSL5GnyD0z5SnNrHLd50jA)(tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* control, NF sp, NF pv, NF f);
 static N_INLINE(NF*, get__5nJrUvi9aIWOwCcVeE1Mszwoptions)(tyObject_Option__MBAh7IvpI0zpyfBz2BbYLA* self);
 N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__GdqrB2DGxFMVhU2CgZ9c33A)(ErlNifEnv* env, NF V);
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, colonanonymous___dPeDdCnMoZuCgye5LFho4w_3)(ErlNifEnv* env, int argc, unsigned long long* argv);
+static N_INLINE(NI32, get__eSiZpud1fqbLE55rzdD3SQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self, NI32 otherwise);
+static N_INLINE(NIM_BOOL, isSome__mick6IKW7paK9bdpVJrnJgQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self);
+N_LIB_PRIVATE N_NIMCALL(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w, from_term__zyO1yRfTECDMV9a6o3d00hQ)(ErlNifEnv* env, unsigned long long term);
+N_LIB_PRIVATE N_NOINLINE(void, raiseOverflow)(void);
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__pJdsNsvteHR7m7nv0yKxZQ)(ErlNifEnv* env, NI32 V);
 N_LIB_PRIVATE N_NIMCALL(int, on_load__8pPESl2pjVVSHE8sDlfHmQ)(ErlNifEnv* envX60gensym25510006_, void** priv_dataX60gensym25510007_, unsigned long long load_infoX60gensym25510008_);
 N_LIB_PRIVATE N_NIMCALL(void, on_unload__zfoBJ1FmbMCz6PPaUkQHLw)(ErlNifEnv* envX60gensym25510012_, void* priv_dataX60gensym25510013_);
 N_LIB_EXPORT N_CDECL(ErlNifEntry*, nif_init)(void);
@@ -188,23 +188,23 @@ N_LIB_PRIVATE N_NIMCALL(void, NimMainModule)(void);
 /* section: NIM_merge_DATA */
 static const struct {
   NI cap; NIM_CHAR data[5+1];
-} TM__XPEA3V09aI32RT0qKBrgPHQ_3 = { 5 | NIM_STRLIT_FLAG, "error" };
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_4 = {5, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_3};
+} TM__XPEA3V09aI32RT0qKBrgPHQ_2 = { 5 | NIM_STRLIT_FLAG, "error" };
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_3 = {5, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_2};
 static const struct {
   NI cap; NIM_CHAR data[29+1];
-} TM__XPEA3V09aI32RT0qKBrgPHQ_5 = { 29 | NIM_STRLIT_FLAG, "fail to allocate new resource" };
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_6 = {29, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_5};
+} TM__XPEA3V09aI32RT0qKBrgPHQ_4 = { 29 | NIM_STRLIT_FLAG, "fail to allocate new resource" };
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_5 = {29, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_4};
 extern TNimType NTI__bq5YFIFutDsA2ou9cpZuWAQ_;
 static const struct {
   NI cap; NIM_CHAR data[34+1];
-} TM__XPEA3V09aI32RT0qKBrgPHQ_7 = { 34 | NIM_STRLIT_FLAG, "Can\'t obtain a value from a `none`" };
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_8 = {34, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_7};
+} TM__XPEA3V09aI32RT0qKBrgPHQ_6 = { 34 | NIM_STRLIT_FLAG, "Can\'t obtain a value from a `none`" };
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_7 = {34, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_6};
 static const struct {
   NI cap; NIM_CHAR data[2+1];
-} TM__XPEA3V09aI32RT0qKBrgPHQ_9 = { 2 | NIM_STRLIT_FLAG, "ok" };
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_10 = {2, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_9};
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_11 = {34, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_7};
-static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_12 = {2, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_9};
+} TM__XPEA3V09aI32RT0qKBrgPHQ_8 = { 2 | NIM_STRLIT_FLAG, "ok" };
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_9 = {2, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_8};
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_10 = {34, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_6};
+static const NimStringV2 TM__XPEA3V09aI32RT0qKBrgPHQ_11 = {2, (NimStrPayload*)&TM__XPEA3V09aI32RT0qKBrgPHQ_8};
 
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE tyArray__AyK9b5FdRVQxH3YlebcL8vg funcsX60gensym25520057___U9ahAE9cQZTjiKgTKDCPBxdQ;
@@ -258,82 +258,6 @@ static N_INLINE(void, nimFrame)(TFrame* s) {
 static N_INLINE(void, popFrame)(void) {
 	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
 }
-static N_INLINE(NIM_BOOL, isSome__mick6IKW7paK9bdpVJrnJgQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self) {
-	NIM_BOOL result;
-	nimfr_("isSome", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	result = (NIM_BOOL)0;
-	nimln_(144, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	result = self.has;
-	popFrame();
-	return result;
-}
-static N_INLINE(NI32, get__eSiZpud1fqbLE55rzdD3SQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self, NI32 otherwise) {
-	NI32 result;
-NIM_BOOL* nimErr_;
-	nimfr_("get", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-{nimErr_ = nimErrorFlag();
-	result = (NI32)0;
-	nimln_(189, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	nimln_(198, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
-	{
-		NIM_BOOL T3_;
-		T3_ = (NIM_BOOL)0;
-		T3_ = isSome__mick6IKW7paK9bdpVJrnJgQoptions(self);
-		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-		if (!T3_) goto LA4_;
-		result = self.val;
-	}
-	goto LA1_;
-	LA4_: ;
-	{
-		result = otherwise;
-	}
-	LA1_: ;
-	}BeforeRet_: ;
-	popFrame();
-	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, colonanonymous___dPeDdCnMoZuCgye5LFho4w)(ErlNifEnv* env, int argc, unsigned long long* argv) {
-	unsigned long long result;
-	NI32 a1;
-	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w T1_;
-	NI32 a2;
-	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w T2_;
-	NI32 r;
-	NI TM__XPEA3V09aI32RT0qKBrgPHQ_2;
-NIM_BOOL* nimErr_;
-	nimfr_(":anonymous", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
-{nimErr_ = nimErrorFlag();
-	result = (unsigned long long)0;
-	nimln_(45, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	T1_ = from_term__zyO1yRfTECDMV9a6o3d00hQ(env, argv[((NI) 0)]);
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	a1 = get__eSiZpud1fqbLE55rzdD3SQoptions(T1_, ((NI) 0));
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(46, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	T2_ = from_term__zyO1yRfTECDMV9a6o3d00hQ(env, argv[((NI) 1)]);
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	a2 = get__eSiZpud1fqbLE55rzdD3SQoptions(T2_, ((NI) 0));
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(47, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	if (nimAddInt(a1, a2, &TM__XPEA3V09aI32RT0qKBrgPHQ_2)) { raiseOverflow(); goto BeforeRet_;
-};
-	if (TM__XPEA3V09aI32RT0qKBrgPHQ_2 < (-2147483647 -1) || TM__XPEA3V09aI32RT0qKBrgPHQ_2 > 2147483647){ raiseOverflow(); goto BeforeRet_;
-}
-	r = (NI32)(TM__XPEA3V09aI32RT0qKBrgPHQ_2);
-	nimln_(48, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	result = to_term__pJdsNsvteHR7m7nv0yKxZQ(env, r);
-	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	goto BeforeRet_;
-	}BeforeRet_: ;
-	popFrame();
-	return result;
-}
 static N_INLINE(NIM_BOOL, isNone__9c8EzI5kW85Knaeyi5R21aAoptions)(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw self) {
 	NIM_BOOL result;
 	nimfr_("isNone", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
@@ -373,7 +297,7 @@ NIM_BOOL* nimErr_;
 		T6_ = (tyObject_UnpackDefect__bq5YFIFutDsA2ou9cpZuWAQ*) nimNewObj(sizeof(tyObject_UnpackDefect__bq5YFIFutDsA2ou9cpZuWAQ));
 		(*T6_).Sup.Sup.Sup.m_type = (&NTI__bq5YFIFutDsA2ou9cpZuWAQ_);
 		(*T6_).Sup.Sup.name = "UnpackDefect";
-		(*T6_).Sup.Sup.message = TM__XPEA3V09aI32RT0qKBrgPHQ_8;
+		(*T6_).Sup.Sup.message = TM__XPEA3V09aI32RT0qKBrgPHQ_7;
 		(*T6_).Sup.Sup.parent = NIM_NIL;
 		nimln_(185, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
 		raiseExceptionEx((Exception*)T6_, "UnpackDefect", "get", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim", 185);
@@ -386,7 +310,7 @@ NIM_BOOL* nimErr_;
 	popFrame();
 	return result;
 }
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, create_resource__dPeDdCnMoZuCgye5LFho4w_2)(ErlNifEnv* env, int argc, unsigned long long* argv) {
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, create_resource__dPeDdCnMoZuCgye5LFho4w)(ErlNifEnv* env, int argc, unsigned long long* argv) {
 	unsigned long long result;
 	tyObject_Option__B2fjAwynjxmQWpd3bed9cLw res;
 	tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA** T11_;
@@ -398,16 +322,16 @@ N_LIB_PRIVATE N_NIMCALL(unsigned long long, create_resource__dPeDdCnMoZuCgye5LFh
 	tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA** T16_;
 	unsigned long long T17_;
 NIM_BOOL* nimErr_;
-	nimfr_("create_resource", "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimfr_("create_resource", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 {nimErr_ = nimErrorFlag();
 	result = (unsigned long long)0;
-	nimln_(19, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(19, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	res = new_resource__r9byBO1Ma6IFzl2uk8SWYUw(env);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	{
 		NIM_BOOL T3_;
 		tyArray__mkrXHkCDehl7KC6jLylMdg result_tupX60gensym25460001_;
@@ -420,58 +344,58 @@ NIM_BOOL* nimErr_;
 		T3_ = isNone__9c8EzI5kW85Knaeyi5R21aAoptions(res);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		if (!T3_) goto LA4_;
-		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 		nimZeroMem((void*)result_tupX60gensym25460001_, sizeof(tyArray__mkrXHkCDehl7KC6jLylMdg));
-		nimln_(224, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+		nimln_(224, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 		nimZeroMem((void*)(&T6_), sizeof(tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g));
-		T6_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_4;
+		T6_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_3;
 		T7_ = (unsigned long long)0;
 		T7_ = to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg(env, T6_);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		result_tupX60gensym25460001_[(((NI) 0))- 0] = T7_;
-		nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+		nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 		T8_ = dotdot___u9aQHCw3CKRH79cmJFUBLU9agsystem(((NI) 1), ((NI) 1));
-		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 		T10_ = (unsigned long long)0;
-		T10_ = to_term__9a9cLwpsgfxKoQ70eO0WYSNw(env, TM__XPEA3V09aI32RT0qKBrgPHQ_6);
+		T10_ = to_term__9a9cLwpsgfxKoQ70eO0WYSNw(env, TM__XPEA3V09aI32RT0qKBrgPHQ_5);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		T9_[0] = T10_;
-		nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+		nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 		X5BX5Deq___13i9ch7tdtUm3gbkon5nlrA(result_tupX60gensym25460001_, T8_, T9_, 1);
-		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+		nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 		result = enif_make_tuple_from_array(env, result_tupX60gensym25460001_, 2);
 		goto BeforeRet_;
 	}
 	LA4_: ;
-	nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	T11_ = (tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA**)0;
 	T11_ = get__CynsSRaAL9c9a9clmpoVCgSqwoptions((&res));
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	init_controller__DrEjcoZ9bECTPpHDjBtiS3A((*T11_), 1.0000000000000000e+02, -1.0000000000000000e+01, 1.0000000000000000e+01, 5.0000000000000000e-01, 2.5000000000000000e-01, 1.0000000000000000e+00);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	nimZeroMem((void*)result_tupX60gensym25475001_, sizeof(tyArray__mkrXHkCDehl7KC6jLylMdg));
-	nimln_(222, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(222, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	nimZeroMem((void*)(&T12_), sizeof(tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g));
-	T12_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_10;
+	T12_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_9;
 	T13_ = (unsigned long long)0;
 	T13_ = to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg(env, T12_);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	result_tupX60gensym25475001_[(((NI) 0))- 0] = T13_;
-	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	T14_ = dotdot___u9aQHCw3CKRH79cmJFUBLU9agsystem(((NI) 1), ((NI) 1));
-	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	T16_ = (tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA**)0;
 	T16_ = get__CynsSRaAL9c9a9clmpoVCgSqwoptions((&res));
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
@@ -479,11 +403,11 @@ NIM_BOOL* nimErr_;
 	T17_ = release_resource__303jJuWZQeBLgwKlpOxU4Q(env, (*T16_));
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	T15_[0] = T17_;
-	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	X5BX5Deq___13i9ch7tdtUm3gbkon5nlrA(result_tupX60gensym25475001_, T14_, T15_, 1);
-	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	result = enif_make_tuple_from_array(env, result_tupX60gensym25475001_, 2);
 	goto BeforeRet_;
 	}BeforeRet_: ;
@@ -518,7 +442,7 @@ NIM_BOOL* nimErr_;
 		T6_ = (tyObject_UnpackDefect__bq5YFIFutDsA2ou9cpZuWAQ*) nimNewObj(sizeof(tyObject_UnpackDefect__bq5YFIFutDsA2ou9cpZuWAQ));
 		(*T6_).Sup.Sup.Sup.m_type = (&NTI__bq5YFIFutDsA2ou9cpZuWAQ_);
 		(*T6_).Sup.Sup.name = "UnpackDefect";
-		(*T6_).Sup.Sup.message = TM__XPEA3V09aI32RT0qKBrgPHQ_11;
+		(*T6_).Sup.Sup.message = TM__XPEA3V09aI32RT0qKBrgPHQ_10;
 		(*T6_).Sup.Sup.parent = NIM_NIL;
 		nimln_(185, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
 		raiseExceptionEx((Exception*)T6_, "UnpackDefect", "get", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim", 185);
@@ -531,7 +455,7 @@ NIM_BOOL* nimErr_;
 	popFrame();
 	return result;
 }
-N_LIB_PRIVATE N_NIMCALL(unsigned long long, update_resource__dPeDdCnMoZuCgye5LFho4w_3)(ErlNifEnv* env, int argc, unsigned long long* argv) {
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, update_resource__dPeDdCnMoZuCgye5LFho4w_2)(ErlNifEnv* env, int argc, unsigned long long* argv) {
 	unsigned long long result;
 	tyObject_Option__B2fjAwynjxmQWpd3bed9cLw resource;
 	tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* controller;
@@ -548,44 +472,44 @@ N_LIB_PRIVATE N_NIMCALL(unsigned long long, update_resource__dPeDdCnMoZuCgye5LFh
 	tyArray__mb9aqHXNNkFeLtIEP6aXMYQ T18_;
 	unsigned long long T19_;
 NIM_BOOL* nimErr_;
-	nimfr_("update_resource", "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimfr_("update_resource", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 {nimErr_ = nimErrorFlag();
 	result = (unsigned long long)0;
-	nimln_(28, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(28, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	resource = get_resource__Wr1CzN6z01R3q9bCccSJpiA(env, argv[((NI) 0)]);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(30, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(30, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	{
 		NIM_BOOL T3_;
 		T3_ = (NIM_BOOL)0;
 		T3_ = isNone__9c8EzI5kW85Knaeyi5R21aAoptions(resource);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		if (!T3_) goto LA4_;
-		nimln_(31, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+		nimln_(31, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 		result = enif_make_badarg(env);
 		goto BeforeRet_;
 	}
 	LA4_: ;
-	nimln_(33, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(33, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	T6_ = (tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA**)0;
 	T6_ = get__CynsSRaAL9c9a9clmpoVCgSqwoptions((&resource));
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	controller = (*T6_);
-	nimln_(34, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(34, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	sp = from_term__7J47caK3FAXHXyAsCwrmjA(env, argv[((NI) 1)]);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(35, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(35, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	pv = from_term__7J47caK3FAXHXyAsCwrmjA(env, argv[((NI) 2)]);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(37, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(37, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	{
 		NIM_BOOL T9_;
 		T9_ = (NIM_BOOL)0;
@@ -596,14 +520,14 @@ NIM_BOOL* nimErr_;
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		LA10_: ;
 		if (!T9_) goto LA11_;
-		nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+		nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 		result = enif_make_badarg(env);
 		goto BeforeRet_;
 	}
 	LA11_: ;
-	nimln_(40, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(40, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	T13_ = (NF*)0;
 	T13_ = get__5nJrUvi9aIWOwCcVeE1Mszwoptions((&sp));
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
@@ -612,32 +536,108 @@ NIM_BOOL* nimErr_;
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	res = update__hSL5GnyD0z5SnNrHLd50jA(controller, (*T13_), (*T14_), 0.0);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	nimZeroMem((void*)result_tupX60gensym25490001_, sizeof(tyArray__mkrXHkCDehl7KC6jLylMdg));
-	nimln_(222, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(222, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	nimZeroMem((void*)(&T15_), sizeof(tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g));
-	T15_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_12;
+	T15_.val = TM__XPEA3V09aI32RT0qKBrgPHQ_11;
 	T16_ = (unsigned long long)0;
 	T16_ = to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg(env, T15_);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	result_tupX60gensym25490001_[(((NI) 0))- 0] = T16_;
-	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	T17_ = dotdot___u9aQHCw3CKRH79cmJFUBLU9agsystem(((NI) 1), ((NI) 1));
-	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	T19_ = (unsigned long long)0;
 	T19_ = to_term__GdqrB2DGxFMVhU2CgZ9c33A(env, res);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	T18_[0] = T19_;
-	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/codec.nim");
+	nimln_(219, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
 	X5BX5Deq___13i9ch7tdtUm3gbkon5nlrA(result_tupX60gensym25490001_, T17_, T18_, 1);
-	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
+	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
 	result = enif_make_tuple_from_array(env, result_tupX60gensym25490001_, 2);
+	goto BeforeRet_;
+	}BeforeRet_: ;
+	popFrame();
+	return result;
+}
+static N_INLINE(NIM_BOOL, isSome__mick6IKW7paK9bdpVJrnJgQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self) {
+	NIM_BOOL result;
+	nimfr_("isSome", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	result = (NIM_BOOL)0;
+	nimln_(144, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	result = self.has;
+	popFrame();
+	return result;
+}
+static N_INLINE(NI32, get__eSiZpud1fqbLE55rzdD3SQoptions)(tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w self, NI32 otherwise) {
+	NI32 result;
+NIM_BOOL* nimErr_;
+	nimfr_("get", "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+{nimErr_ = nimErrorFlag();
+	result = (NI32)0;
+	nimln_(189, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	nimln_(198, "/home/elcritch/.asdf/installs/nim/devel/lib/pure/options.nim");
+	{
+		NIM_BOOL T3_;
+		T3_ = (NIM_BOOL)0;
+		T3_ = isSome__mick6IKW7paK9bdpVJrnJgQoptions(self);
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+		if (!T3_) goto LA4_;
+		result = self.val;
+	}
+	goto LA1_;
+	LA4_: ;
+	{
+		result = otherwise;
+	}
+	LA1_: ;
+	}BeforeRet_: ;
+	popFrame();
+	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, colonanonymous___dPeDdCnMoZuCgye5LFho4w_3)(ErlNifEnv* env, int argc, unsigned long long* argv) {
+	unsigned long long result;
+	NI32 a1;
+	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w T1_;
+	NI32 a2;
+	tyObject_Option__qXpOBk6YAm7MMF5pjbEt7w T2_;
+	NI32 r;
+	NI TM__XPEA3V09aI32RT0qKBrgPHQ_12;
+NIM_BOOL* nimErr_;
+	nimfr_(":anonymous", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
+{nimErr_ = nimErrorFlag();
+	result = (unsigned long long)0;
+	nimln_(45, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	T1_ = from_term__zyO1yRfTECDMV9a6o3d00hQ(env, argv[((NI) 0)]);
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	a1 = get__eSiZpud1fqbLE55rzdD3SQoptions(T1_, ((NI) 0));
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	nimln_(46, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	T2_ = from_term__zyO1yRfTECDMV9a6o3d00hQ(env, argv[((NI) 1)]);
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	a2 = get__eSiZpud1fqbLE55rzdD3SQoptions(T2_, ((NI) 0));
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	nimln_(47, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	if (nimAddInt(a1, a2, &TM__XPEA3V09aI32RT0qKBrgPHQ_12)) { raiseOverflow(); goto BeforeRet_;
+};
+	if (TM__XPEA3V09aI32RT0qKBrgPHQ_12 < (-2147483647 -1) || TM__XPEA3V09aI32RT0qKBrgPHQ_12 > 2147483647){ raiseOverflow(); goto BeforeRet_;
+}
+	r = (NI32)(TM__XPEA3V09aI32RT0qKBrgPHQ_12);
+	nimln_(48, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	result = to_term__pJdsNsvteHR7m7nv0yKxZQ(env, r);
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	goto BeforeRet_;
 	}BeforeRet_: ;
 	popFrame();
@@ -648,29 +648,29 @@ N_LIB_PRIVATE N_NIMCALL(int, on_load__8pPESl2pjVVSHE8sDlfHmQ)(ErlNifEnv* envX60g
 	int flagsX60gensym25510009_;
 	int flags_triedX60gensym25510010_;
 	ErlNifResourceType* open_resX60gensym25510011_;
-	nimfr_("on_load", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("on_load", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 {	result = (int)0;
-	nimln_(28, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(28, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	flagsX60gensym25510009_ = ((int) (3));
 	flags_triedX60gensym25510010_ = (int)0;
-	nimln_(30, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
-	open_resX60gensym25510011_ = enif_open_resource_type(envX60gensym25510006_, NIM_NIL, "Elixir.Controller", NIM_NIL, flagsX60gensym25510009_, (&flags_triedX60gensym25510010_));
-	nimln_(31, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(30, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
+	open_resX60gensym25510011_ = enif_open_resource_type(envX60gensym25510006_, NIM_NIL, "Elixir.WidgetLordsNifs.Controller", NIM_NIL, flagsX60gensym25510009_, (&flags_triedX60gensym25510010_));
+	nimln_(31, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	{
 		if (!(open_resX60gensym25510011_ == 0)) goto LA3_;
 		result = ((int) -1);
 		goto BeforeRet_;
 	}
 	LA3_: ;
-	nimln_(32, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(32, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	(*priv_dataX60gensym25510007_) = ((void*) (open_resX60gensym25510011_));
-	nimln_(33, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(33, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	result = ((int) 0);
 	goto BeforeRet_;
 	}BeforeRet_: ;
@@ -678,23 +678,23 @@ N_LIB_PRIVATE N_NIMCALL(int, on_load__8pPESl2pjVVSHE8sDlfHmQ)(ErlNifEnv* envX60g
 	return result;
 }
 N_LIB_PRIVATE N_NIMCALL(void, on_unload__zfoBJ1FmbMCz6PPaUkQHLw)(ErlNifEnv* envX60gensym25510012_, void* priv_dataX60gensym25510013_) {
-	nimfr_("on_unload", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
-	nimln_(36, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("on_unload", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
+	nimln_(36, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	enif_free(priv_dataX60gensym25510013_);
 	popFrame();
 }
 N_LIB_EXPORT N_CDECL(ErlNifEntry*, nif_init)(void) {
 	ErlNifEntry* result;
-	nimfr_("nif_init", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimfr_("nif_init", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	result = (ErlNifEntry*)0;
-	nimln_(79, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(79, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	NimMain();
-	nimln_(80, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(80, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	result = (&entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA);
 	popFrame();
 	return result;
@@ -735,63 +735,63 @@ N_LIB_PRIVATE N_NIMCALL(void, NimMainModule)(void) {
 	ErlNifFunc T1_;
 	ErlNifFunc T2_;
 	ErlNifFunc T3_;
-	nimfr_("libwidgetlords_nifs", "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	nimln_(64, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimfr_("libwidgetlords_nifs", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	nimln_(64, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	nimZeroMem((void*)(&T1_), sizeof(ErlNifFunc));
-	T1_.name = "add_numbers";
-	T1_.arity = ((unsigned int) 2);
-	T1_.fptr = colonanonymous___dPeDdCnMoZuCgye5LFho4w;
-	T1_.flags = ((tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag) 0);
+	T1_.name = "create_resource";
+	T1_.arity = ((unsigned int) 0);
+	T1_.fptr = create_resource__dPeDdCnMoZuCgye5LFho4w;
+	T1_.flags = ((tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag) 2);
 	funcsX60gensym25520057___U9ahAE9cQZTjiKgTKDCPBxdQ[0] = T1_;
 	nimZeroMem((void*)(&T2_), sizeof(ErlNifFunc));
-	T2_.name = "create_resource";
-	T2_.arity = ((unsigned int) 0);
-	T2_.fptr = create_resource__dPeDdCnMoZuCgye5LFho4w_2;
-	T2_.flags = ((tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag) 2);
+	T2_.name = "update_resource";
+	T2_.arity = ((unsigned int) 3);
+	T2_.fptr = update_resource__dPeDdCnMoZuCgye5LFho4w_2;
+	T2_.flags = ((tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag) 0);
 	funcsX60gensym25520057___U9ahAE9cQZTjiKgTKDCPBxdQ[1] = T2_;
 	nimZeroMem((void*)(&T3_), sizeof(ErlNifFunc));
-	T3_.name = "update_resource";
-	T3_.arity = ((unsigned int) 3);
-	T3_.fptr = update_resource__dPeDdCnMoZuCgye5LFho4w_3;
+	T3_.name = "add_numbers";
+	T3_.arity = ((unsigned int) 2);
+	T3_.fptr = colonanonymous___dPeDdCnMoZuCgye5LFho4w_3;
 	T3_.flags = ((tyEnum_ErlNifFlags__bBzsSUytLNIxpCBaOXqCag) 0);
 	funcsX60gensym25520057___U9ahAE9cQZTjiKgTKDCPBxdQ[2] = T3_;
-	nimln_(51, "/home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_"
-"nifs.nim");
-	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.name = "Elixir.Controller";
-	nimln_(67, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(51, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/libwidgetlor"
+"ds_nifs.nim");
+	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.name = "Elixir.WidgetLordsNifs.Controller";
+	nimln_(67, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.num_of_funcs = ((int) 3);
-	nimln_(68, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(68, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	{
 		if (!NIM_TRUE) goto LA6_;
-		nimln_(69, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+		nimln_(69, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 		entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.funcs = (&funcsX60gensym25520057___U9ahAE9cQZTjiKgTKDCPBxdQ[(((NI) 0))- 0]);
 	}
 	LA6_: ;
-	nimln_(70, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(70, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.major = ((int) 2);
-	nimln_(71, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(71, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.minor = ((int) 15);
-	nimln_(72, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(72, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.vm_variant = "beam.vanilla";
-	nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.load = ((void*) (on_load__8pPESl2pjVVSHE8sDlfHmQ));
-	nimln_(60, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(60, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.reload = ((void*) (NIM_NIL));
-	nimln_(61, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er.nim");
+	nimln_(61, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.upgrade = ((void*) (NIM_NIL));
-	nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(38, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	entryX60gensym25520058___9btWV7FXsNQXJE7UPIr9ccxA.unload = ((void*) (on_unload__zfoBJ1FmbMCz6PPaUkQHLw));
 	nimTestErrorFlag();
 	popFrame();

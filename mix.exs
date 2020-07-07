@@ -17,7 +17,7 @@ defmodule WidgetlordsNifs.MixProject do
       make_targets: ["all"],
       make_clean: ["clean"],
       docs: docs(),
-      aliases: [nim: [&nim_c/1, "nim"]],
+      aliases: [nim: [&nim_c/1]],
       deps: deps()
     ]
   end
@@ -65,7 +65,7 @@ defmodule WidgetlordsNifs.MixProject do
         Mix.Shell.IO.info("Install Nim to generate C code.")
 
       _nimc ->
-        System.cmd("make", ["nim"], cd: "src/", into: IO.stream(:stdio, :line))
+        System.cmd("make", ["nim"], cd: "nimsrc/", into: IO.stream(:stdio, :line))
     end
   end
 

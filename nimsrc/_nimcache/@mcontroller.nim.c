@@ -88,52 +88,72 @@ static N_INLINE(void, popFrame)(void) {
 	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
 }
 N_LIB_PRIVATE N_NIMCALL(void, init_controller__DrEjcoZ9bECTPpHDjBtiS3A)(tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* control, NF rate, NF min, NF max, NF kp, NF ki, NF kf) {
-	nimfr_("init_controller", "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
-	nimln_(15, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimfr_("init_controller", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
+	nimln_(15, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).min = min;
-	nimln_(16, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(16, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).max = max;
-	nimln_(17, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(17, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).di = ((NF)(1.0000000000000000e+00) / (NF)(rate));
-	nimln_(18, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(18, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).integrate = NIM_TRUE;
-	nimln_(19, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(19, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).kp = kp;
-	nimln_(20, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(20, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).ki = ki;
-	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).kf = kf;
-	nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).p = 0.0;
-	nimln_(23, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(23, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).i = 0.0;
-	nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).f = 0.0;
-	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(25, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).r = 0.0;
 	popFrame();
 }
 N_LIB_PRIVATE N_NIMCALL(NF, update__hSL5GnyD0z5SnNrHLd50jA)(tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* control, NF sp, NF pv, NF f) {
 	NF result;
 	NF error;
-	nimfr_("update", "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimfr_("update", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	result = (NF)0;
-	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(42, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	error = ((NF)(sp) - (NF)(pv));
-	nimln_(43, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(43, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).p = ((NF)((*control).kp) * (NF)(error));
-	nimln_(44, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(44, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	{
 		if (!(*control).integrate) goto LA3_;
-		nimln_(45, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+		nimln_(45, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 		(*control).i = ((NF)((*control).i) + (NF)(((NF)(((NF)(error) * (NF)((*control).ki))) * (NF)((*control).di))));
 	}
 	LA3_: ;
-	nimln_(46, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(46, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).f = ((NF)((*control).kf) * (NF)(f));
-	nimln_(47, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(47, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	(*control).r = clamp__raGZkfxASKJtrXnsu9b3IfA(((NF)(((NF)((*control).p) + (NF)((*control).i))) + (NF)((*control).f)), (*control).min, (*control).max);
-	nimln_(48, "/home/elcritch/projects/pt/widgetlords_nifs/src/controller.nim");
+	nimln_(48, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.n"
+"im");
 	result = (*control).r;
 	popFrame();
 	return result;

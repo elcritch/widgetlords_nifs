@@ -6,8 +6,18 @@ defmodule WidgetLordsNifs.Controller do
   def update_resource(_a, _b, _c), do: raise "not implemented"
 
   def load_nif do
-    :erlang.load_nif(to_charlist(Path.join(Path.dirname(__ENV__.file), "libwidgetlords_nif.so")), 0)
+    sofile =
+      :code.priv_dir(:widgetlords_nifs) |>
+      to_string() |>
+      Path.join("widgetlords_nifs") |>
+      to_char_list()
 
+    IO.inspect(sofile, label: :sofile)
+    sofile |> :erlang.load_nif(0)
+
+  end
+
+  def test() do
     {:ok, ctrl} = create_resource()
     IO.inspect(update_resource(ctrl, 10.0, 1.0), label: 'PIControl update')
     IO.inspect(update_resource(ctrl, 10.0, 5.0), label: 'PIControl update')

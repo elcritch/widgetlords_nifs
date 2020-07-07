@@ -171,21 +171,21 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_Option__HN9crX3Zp7bKsLjyyTLujIA, priv_data__HET
 	ErlNifResourceType* priv;
 	void* T1_;
 NIM_BOOL* nimErr_;
-	nimfr_("priv_data", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("priv_data", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 {nimErr_ = nimErrorFlag();
 	nimZeroMem((void*)(&result), sizeof(tyObject_Option__HN9crX3Zp7bKsLjyyTLujIA));
-	nimln_(5, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(5, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	T1_ = (void*)0;
 	T1_ = enif_priv_data(env);
 	priv = ((ErlNifResourceType*) (T1_));
-	nimln_(6, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(6, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	{
 		if (!!((priv == 0))) goto LA4_;
-		nimln_(7, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+		nimln_(7, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 		result = some__nylgUSQDKOPWqKqiI2R39aQoptions(priv);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		goto BeforeRet_;
@@ -251,16 +251,16 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw, new_resource__
 	tyObject_Option__B2fjAwynjxmQWpd3bed9cLw result;
 	tyObject_Option__HN9crX3Zp7bKsLjyyTLujIA privdata;
 NIM_BOOL* nimErr_;
-	nimfr_("new_resource", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("new_resource", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 {nimErr_ = nimErrorFlag();
 	nimZeroMem((void*)(&result), sizeof(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw));
-	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(21, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	privdata = priv_data__HETKDuskSRU9cq8OrzcliqA(env);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
-	nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(22, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	{
 		NIM_BOOL T3_;
 		tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* res;
@@ -270,16 +270,16 @@ NIM_BOOL* nimErr_;
 		T3_ = isSome__wrIeeeykfpyl7dy3FZM9asQoptions(privdata);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		if (!T3_) goto LA4_;
-		nimln_(23, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+		nimln_(23, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 		T6_ = (ErlNifResourceType*)0;
 		T6_ = unsafeGet__EOfxSPch4b3pN9bRQYJneagoptions(privdata);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		T7_ = (void*)0;
 		T7_ = enif_alloc_resource(((void*) (T6_)), ((size_t) (((NI) 88))));
 		res = ((tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA*) (T7_));
-		nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+		nimln_(24, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 		result = some__1Me0L8vR1P7DIWo9c9cFp4NAoptions(res);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		goto BeforeRet_;
@@ -292,17 +292,17 @@ NIM_BOOL* nimErr_;
 N_LIB_PRIVATE N_NIMCALL(unsigned long long, release_resource__303jJuWZQeBLgwKlpOxU4Q)(ErlNifEnv* env, tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* V) {
 	unsigned long long result;
 	unsigned long long term;
-	nimfr_("release_resource", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("release_resource", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 {	result = (unsigned long long)0;
-	nimln_(16, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(16, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	term = enif_make_resource(env, ((void*) (V)));
-	nimln_(17, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(17, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	enif_release_resource(((void*) (V)));
-	nimln_(18, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(18, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	result = term;
 	goto BeforeRet_;
 	}BeforeRet_: ;
@@ -314,17 +314,17 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw, get_resource__
 	tyObject_Option__HN9crX3Zp7bKsLjyyTLujIA privdata;
 	tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA* res;
 NIM_BOOL* nimErr_;
-	nimfr_("get_resource", "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimfr_("get_resource", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 {nimErr_ = nimErrorFlag();
 	nimZeroMem((void*)(&result), sizeof(tyObject_Option__B2fjAwynjxmQWpd3bed9cLw));
-	nimln_(10, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(10, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	privdata = priv_data__HETKDuskSRU9cq8OrzcliqA(env);
 	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	res = (tyObject_PIControl__PxgH1MS9ctZxM8ab9beQYQvA*)0;
-	nimln_(12, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+	nimln_(12, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 	{
 		NIM_BOOL T3_;
 		ErlNifResourceType* T5_;
@@ -338,8 +338,8 @@ NIM_BOOL* nimErr_;
 		T3_ = enif_get_resource(env, term, ((void*) (T5_)), ((void*) (&res)));
 		LA4_: ;
 		if (!T3_) goto LA6_;
-		nimln_(13, "/home/elcritch/projects/pt/widgetlords_nifs/src/nimler-3.1/niml"
-"er/resources.nim");
+		nimln_(13, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/resources.nim");
 		result = some__1Me0L8vR1P7DIWo9c9cFp4NAoptions(res);
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		goto BeforeRet_;

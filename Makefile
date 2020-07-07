@@ -42,7 +42,7 @@ ifeq ($(CROSSCOMPILE),)
     # Not crosscompiling, so check that we're on Linux.
     ifneq ($(shell uname -s),Linux)
         $(warning `widgetlords_nifs` only works on Nerves and Linux platforms.)
-	# HAL_SRC = src/hal_stub.c
+	# HAL_SRC = nimsrc/hal_stub.c
         # LDFLAGS += -undefined dynamic_lookup -dynamiclib
     else
         LDFLAGS += -fPIC -shared
@@ -58,9 +58,9 @@ endif
 ERL_CFLAGS  = -I$(ERL_EI_INCLUDE_DIR)
 ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
-NIM_SRC := $(wildcard src/_nimcache/*.c)
-NIM_HDRS := $(wildcard src/_nimcache/*.h)
-OBJ = $(NIM_SRC:src/_nimcache/%.c=$(BUILD)/%.o)
+NIM_SRC := $(wildcard nimsrc/_nimcache/*.c)
+NIM_HDRS := $(wildcard nimsrc/_nimcache/*.h)
+OBJ = $(NIM_SRC:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
 
 
 calling_from_make:
@@ -70,12 +70,12 @@ all: install
 
 install: $(PREFIX) $(BUILD) $(NIF)
 
-$(OBJ): $(HEADERS) Makefile
+$(OBJ): $(HEADERS)
 
-$(BUILD)/%.o: src/_nimcache/%.c
+$(BUILD)/%.o: nimsrc/_nimcache/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
-$(BUILD)/%.o: src/%.c
+$(BUILD)/%.o: nimsrc/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
 $(NIF): $(OBJ)
@@ -85,6 +85,7 @@ $(PREFIX) $(BUILD):
 	mkdir -p $@
 
 clean:
+	@echo APP_PATH: $(APP_PATH)
 	@echo ERL_EI_INCLUDE_DIR: $(ERL_EI_INCLUDE_DIR)
 	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
 	@echo ERL_CFLAGS: $(ERL_CFLAGS)
