@@ -1,6 +1,6 @@
-import nimler
-import nimler/codec
-import nimler/resources
+import nimler/nimler
+import nimler/nimler/codec
+import nimler/nimler/resources
 import ./controller
 
 const rate = 100.0
@@ -41,7 +41,16 @@ func update_resource(env; argc; argv): ErlNifTerm =
 
   return env.ok(env.to_term(res))
 
+func add_numbers(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let a1 = env.from_term(argv[0], int32).get(0)
+  let a2 = env.from_term(argv[1], int32).get(0)
+  let r = a1 + a2
+  return env.to_term(r)
+
 resources.export_nifs(
+  "Elixir.NumberAdder", [
+    add_numbers
+  ],
   "Elixir.Controller",
   [
     create_resource.to_nif(name="create_resource", arity=0, flags=ERL_NIF_DIRTY_IO),
