@@ -1,0 +1,25 @@
+{"compile":[
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_assertions.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o stdlib_assertions.nim.c.o stdlib_assertions.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_system.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o stdlib_system.nim.c.o stdlib_system.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_options.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o stdlib_options.nim.c.o stdlib_options.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_times.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o stdlib_times.nim.c.o stdlib_times.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_os.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o stdlib_os.nim.c.o stdlib_os.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@scodec.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o @mnimler-3.1@snimler@scodec.nim.c.o @mnimler-3.1@snimler@scodec.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@sresources.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o @mnimler-3.1@snimler@sresources.nim.c.o @mnimler-3.1@snimler@sresources.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mcontroller.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o @mcontroller.nim.c.o @mcontroller.nim.c"],
+["/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mlibwidgetlords_nifs.nim.c", "gcc -c  -w -pthread -I/home/elcritch/.asdf/installs/erlang/22.3.2/erts-10.7.1/include/   -I/home/elcritch/.asdf/installs/nim/devel/lib -I/home/elcritch/projects/pt/widgetlords_nifs/src -o @mlibwidgetlords_nifs.nim.c.o @mlibwidgetlords_nifs.nim.c"]],
+"link":[
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_assertions.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_system.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_options.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_times.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_os.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@scodec.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@sresources.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mcontroller.nim.c.o",
+"/home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mlibwidgetlords_nifs.nim.c.o"
+],
+"linkcmd": "gcc   -o /home/elcritch/projects/pt/widgetlords_nifs/src/libwidgetlords_nifs  /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_assertions.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_system.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_options.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_times.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/stdlib_os.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@scodec.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mnimler-3.1@snimler@sresources.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mcontroller.nim.c.o /home/elcritch/projects/pt/widgetlords_nifs/src/_nimcache/@mlibwidgetlords_nifs.nim.c.o  -lm -pthread -lm -lrt   -ldl",
+"extraCmds": [],
+"stdinInput": false
+}
