@@ -249,11 +249,8 @@ func pi_spi_din_4freq_read_di(env; argc; argv): ErlNifTerm {.nif(arity=2), raise
     let res = pi_spi_din.pi_spi_din_4freq_read_di(ce, address) 
     return env.to_term( (AtomOk, res.uint32,) )
 
-func vpe_2901a_init(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
+func vpe_2901a_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().chip_enable
-    let address = env.from_term(argv[0], uint32).get().uint8
-    let channel = env.from_term(argv[0], uint32).get().uint8
     pi_spi_din.vpe_2901a_init() 
     return env.to_term( AtomOk )
 
