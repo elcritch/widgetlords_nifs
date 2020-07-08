@@ -55,17 +55,24 @@ else
 endif
 
 # Set Erlang-specific compile and linker flags
-ERL_CFLAGS  = -I$(ERL_EI_INCLUDE_DIR)
-ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
+ERL_CFLAGS += -I$(ERL_EI_INCLUDE_DIR)
+ERL_LDFLAGS += -L$(ERL_EI_LIBDIR) -lei
 
-NIM_SRCS := $(wildcard nimsrc/_nimcache/*.c)
-NIM_HDRS := $(wildcard nimsrc/_nimcache/*.h)
+MACHINE_TYPE := $(shell cc -dumpversion | grep 64 )
+ifneq (,$(findstring 64,$(MACHINE_TYPE)))
+	NIM_CACHE = _nimcache64
+else
+	NIM_CACHE = _nimcache32
+endif
+
+NIM_SRCS := $(wildcard nimsrc/$(NIM_CACHE)/*.c)
+NIM_HDRS := $(wildcard nimsrc/$(NIM_CACHE)/*.h)
 
 LW_SRCS := $(wildcard nimsrc/libwidgetlords/src/*.c)
 LW_HDRS := $(wildcard nimsrc/libwidgetlords/include/*.h)
 
 LW_OBJS := $(LW_SRCS:nimsrc/libwidgetlords/src/%.c=$(BUILD)/%.o)
-NIM_OBJS := $(NIM_SRCS:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
+NIM_OBJS := $(NIM_SRCS:nimsrc/$(NIM_CACHE)/%.c=$(BUILD)/%.o)
 
 OBJS := $(LW_OBJS) $(NIM_OBJS) 
 
@@ -75,13 +82,18 @@ calling_from_make:
 all: install
 
 install: $(PREFIX) $(BUILD) $(NIF)
+	@echo CC: $(CC)
+	@echo ENVS: $(ENV)
 
 $(OBJS): $(HEADERS)
 
 $(BUILD)/%.o: nimsrc/libwidgetlords/src/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
-$(BUILD)/%.o: nimsrc/_nimcache/%.c
+$(BUILD)/%.o: nimsrc/_nimcache32/%.c
+	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
+
+$(BUILD)/%.o: nimsrc/_nimcache64/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
 $(BUILD)/%.o: nimsrc/%.c
@@ -91,10 +103,10 @@ $(NIF): $(OBJS)
 	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $^
 
 $(PREFIX) $(BUILD):
-	mkdir -p $@
-
-clean:
+	@echo ENVS: $(shell env | grep ERL)
+	@echo NIM_CACHE: $(NIM_CACHE)
 	@echo APP_PATH: $(APP_PATH)
+	@echo ERL_EI: $(ERL_EI)
 	@echo ERL_EI_INCLUDE_DIR: $(ERL_EI_INCLUDE_DIR)
 	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
 	@echo ERL_CFLAGS: $(ERL_CFLAGS)
@@ -102,6 +114,9 @@ clean:
 	@echo NIM_OBJS: $(NIM_OBJS)
 	@echo LW_OBJS: $(LW_OBJS)
 	@echo OBJS: $(OBJS)
+	mkdir -p $@
+
+clean:
 	$(RM) $(NIF) $(OBJS)
 
 .PHONY: all clean calling_from_make install
