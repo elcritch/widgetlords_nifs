@@ -46,66 +46,66 @@ func gpio_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
     return env.to_term( (AtomError, err,) )
 
 func pi_spi_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
-  let channel = env.from_term(argv[0], uint32).get()
-  let counts = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
-  pi_spi.pi_spi_2ao_write_single*(channel, counts, ctype)
+  let channel = env.from_term(argv[0], uint32).get().uint8
+  let counts = env.from_term(argv[0], uint32).get().uint16
+  let ctype = env.from_term(argv[0], uint32).get().uint8
+  pi_spi.pi_spi_2ao_write_single(channel, counts, ctype)
 
   return env.to_term(AtomOk)
 
-func pi_spi_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let channel = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
-  let res = pi_spi.pi_spi_8ai_read_single*(channel, ctype)
+func pi_spi_8ai_read_single(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let channel = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
+  let res = pi_spi.pi_spi_8ai_read_single(channel, ctype)
 
   return env.to_term( (AtomOk, res.int) )
 
 func pi_spi_8di_read(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let address = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let address = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   let res = pi_spi.pi_spi_8di_read(address, ctype) 
 
   return env.to_term( (AtomOk, res.int) )
 
 func pi_spi_8di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
-  let address = env.from_term(argv[0], uint32).get()
-  let channel = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let address = env.from_term(argv[0], uint32).get().uint8
+  let channel = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   let res = pi_spi.pi_spi_8di_read_single(address, channel, ctype) 
 
   return env.to_term( (AtomOk, res.int) )
 
 func pi_spi_8di_init(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let address = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let address = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   pi_spi.pi_spi_8di_init(address, ctype) 
 
   return env.to_term( AtomOk )
 
 func pi_spi_8ko_write(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let data = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let data = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   pi_spi.pi_spi_8ko_write(data, ctype) 
 
   return env.to_term( AtomOk )
 
 func pi_spi_8ko_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
-  let channel = env.from_term(argv[0], uint32).get()
-  let data = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let channel = env.from_term(argv[0], uint32).get().uint8
+  let data = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   pi_spi.pi_spi_8ko_write_single(channel, data, ctype) 
 
   return env.to_term( AtomOk )
 
 func pi_spi_8ai_16b_set_channel(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let channel = env.from_term(argv[0], uint32).get()
-  let ctype = env.from_term(argv[0], uint32).get()
+  let channel = env.from_term(argv[0], uint32).get().uint8
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   pi_spi.pi_spi_8ai_16b_set_channel(channel, ctype) 
 
   return env.to_term( AtomOk )
 
-func pi_spi_8di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
-  let ctype = env.from_term(argv[0], uint32).get()
+func pi_spi_8ai_16b_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
+  let ctype = env.from_term(argv[0], uint32).get().uint8
   let res = pi_spi.pi_spi_8ai_16b_read(ctype) 
 
   return env.to_term( (AtomOk, res.int) )

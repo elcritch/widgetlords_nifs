@@ -36,6 +36,7 @@
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/collections/tables.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/hashes.nim
 /home/elcritch/projects/pt/widgetlords_nifs/nimsrc/wrappers/gpio.nim
+/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/wrappers/pi_spi.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/system/bitmasks.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/nimhcr.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/collections/hashcommon.nim

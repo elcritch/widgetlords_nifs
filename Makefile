@@ -99,6 +99,7 @@ clean:
 	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
 	@echo ERL_CFLAGS: $(ERL_CFLAGS)
 	@echo ERL_LDFLAGS: $(ERL_LDFLAGS)
+	@echo NIM_OBJS: $(NIM_OBJS)
 	@echo LW_OBJS: $(LW_OBJS)
 	@echo OBJS: $(OBJS)
 	$(RM) $(NIF) $(OBJS)
