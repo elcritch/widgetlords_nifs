@@ -55,6 +55,11 @@ func gpio_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
     else:
       return env.to_term( (AtomError, err,) )
 
+func pi_spi_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
+  withPacked():
+    pi_spi.pi_spi_init()
+    return env.to_term(AtomOk)
+
 func pi_spi_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
     let channel = env.from_term(argv[0], uint32).get().uint8
@@ -136,6 +141,7 @@ export_nifs(
     gpio_init,
     gpio_configure,
     gpio_read,
+    pi_spi_init,
     pi_spi_2ao_write_single,
     pi_spi_8ai_read_single,
     pi_spi_8di_read,
