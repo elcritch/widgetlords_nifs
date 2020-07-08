@@ -58,7 +58,7 @@ endif
 ERL_CFLAGS  = -I$(ERL_EI_INCLUDE_DIR)
 ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
-NIM_SRS := $(wildcard nimsrc/_nimcache/*.c)
+NIM_SRCS := $(wildcard nimsrc/_nimcache/*.c)
 NIM_HDRS := $(wildcard nimsrc/_nimcache/*.h)
 
 LW_SRCS := $(wildcard nimsrc/libwidgetlords/src/*.c)

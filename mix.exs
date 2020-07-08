@@ -1,4 +1,4 @@
-defmodule WidgetlordsNifs.MixProject do
+defmodule WidgetLordsNifs.MixProject do
   use Mix.Project
 
   @version "0.3.6"

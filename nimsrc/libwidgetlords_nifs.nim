@@ -51,6 +51,6 @@ export_nifs(
     add_numbers,
     gpio_init,
     gpio_configure,
-    gpio_read,
+    gpio_read
   ]
 )
