@@ -42,7 +42,7 @@ ifeq ($(CROSSCOMPILE),)
     # Not crosscompiling, so check that we're on Linux.
     ifneq ($(shell uname -s),Linux)
         $(warning `widgetlords_nifs` only works on Nerves and Linux platforms.)
-	# HAL_SRC = nimsrc/hal_stub.c
+	# HAL_SRCS = nimsrc/hal_stub.c
         # LDFLAGS += -undefined dynamic_lookup -dynamiclib
     else
         LDFLAGS += -fPIC -shared
@@ -58,14 +58,14 @@ endif
 ERL_CFLAGS  = -I$(ERL_EI_INCLUDE_DIR)
 ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
-NIM_SRC := $(wildcard nimsrc/_nimcache/*.c)
+NIM_SRS := $(wildcard nimsrc/_nimcache/*.c)
 NIM_HDRS := $(wildcard nimsrc/_nimcache/*.h)
 
-LW_HDRS := $(wildcard nimsrc/libwidgetlords/src/*.c)
+LW_SRCS := $(wildcard nimsrc/libwidgetlords/src/*.c)
 LW_HDRS := $(wildcard nimsrc/libwidgetlords/include/*.h)
 
-NIM_OBJS = $(NIM_SRC:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
-LW_OBJS = $(NIM_SRC:nimsrc/libwidgetlords/src/%.c=$(BUILD)/%.o)
+LW_OBJS := $(LW_SRCS:nimsrc/libwidgetlords/src/%.c=$(BUILD)/%.o)
+NIM_OBJS := $(NIM_SRCS:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
 
 OBJS := $(LW_OBJS) $(NIM_OBJS) 
 
@@ -77,6 +77,9 @@ all: install
 install: $(PREFIX) $(BUILD) $(NIF)
 
 $(OBJS): $(HEADERS)
+
+$(BUILD)/%.o: nimsrc/libwidgetlords/src/%.c
+	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
 $(BUILD)/%.o: nimsrc/_nimcache/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
@@ -96,7 +99,8 @@ clean:
 	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
 	@echo ERL_CFLAGS: $(ERL_CFLAGS)
 	@echo ERL_LDFLAGS: $(ERL_LDFLAGS)
-	@echo OBJ: $(OBJS)
+	@echo LW_OBJS: $(LW_OBJS)
+	@echo OBJS: $(OBJS)
 	$(RM) $(NIF) $(OBJS)
 
 .PHONY: all clean calling_from_make install
