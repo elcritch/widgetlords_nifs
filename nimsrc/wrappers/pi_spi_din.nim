@@ -10,52 +10,52 @@ type
 proc pi_spi_din_init*() {.cdecl, importc: "pi_spi_din_init", header: "pi_spi_din.h".}
 proc pi_spi_din_4ao_init*() {.cdecl, importc: "pi_spi_din_4ao_init",
                             header: "pi_spi_din.h".}
-proc pi_spi_din_4ao_write_single*(address: uint8_t; channel: uint8_t;
-                                 counts: uint16_t) {.cdecl,
+proc pi_spi_din_4ao_write_single*(address: uint8; channel: uint8;
+                                 counts: uint16) {.cdecl,
     importc: "pi_spi_din_4ao_write_single", header: "pi_spi_din.h".}
 proc pi_spi_din_4ao_close*() {.cdecl, importc: "pi_spi_din_4ao_close",
                              header: "pi_spi_din.h".}
-proc pi_spi_din_8ai_read_single*(ce: chip_enable; channel: uint8_t): uint16_t {.cdecl,
+proc pi_spi_din_8ai_read_single*(ce: chip_enable; channel: uint8): uint16 {.cdecl,
     importc: "pi_spi_din_8ai_read_single", header: "pi_spi_din.h".}
-proc pi_spi_din_8di_read*(ce: chip_enable; address: uint8_t): uint8_t {.cdecl,
+proc pi_spi_din_8di_read*(ce: chip_enable; address: uint8): uint8 {.cdecl,
     importc: "pi_spi_din_8di_read", header: "pi_spi_din.h".}
-proc pi_spi_din_8di_read_single*(ce: chip_enable; address: uint8_t; channel: uint8_t): uint8_t {.
+proc pi_spi_din_8di_read_single*(ce: chip_enable; address: uint8; channel: uint8): uint8 {.
     cdecl, importc: "pi_spi_din_8di_read_single", header: "pi_spi_din.h".}
-proc pi_spi_din_8di_init*(ce: chip_enable; address: uint8_t) {.cdecl,
+proc pi_spi_din_8di_init*(ce: chip_enable; address: uint8) {.cdecl,
     importc: "pi_spi_din_8di_init", header: "pi_spi_din.h".}
-proc pi_spi_din_4ko_write*(ce: chip_enable; address: uint8_t; state: uint8_t) {.cdecl,
+proc pi_spi_din_4ko_write*(ce: chip_enable; address: uint8; state: uint8) {.cdecl,
     importc: "pi_spi_din_4ko_write", header: "pi_spi_din.h".}
-proc pi_spi_din_4ko_write_single*(ce: chip_enable; address: uint8_t;
-                                 channel: uint8_t; state: uint8_t) {.cdecl,
+proc pi_spi_din_4ko_write_single*(ce: chip_enable; address: uint8;
+                                 channel: uint8; state: uint8) {.cdecl,
     importc: "pi_spi_din_4ko_write_single", header: "pi_spi_din.h".}
-proc pi_spi_din_4ko_init*(ce: chip_enable; address: uint8_t) {.cdecl,
+proc pi_spi_din_4ko_init*(ce: chip_enable; address: uint8) {.cdecl,
     importc: "pi_spi_din_4ko_init", header: "pi_spi_din.h".}
-proc pi_spi_din_4freq_read_fixed*(ce: chip_enable; address: uint8_t; channel: uint8_t): uint32_t {.
+proc pi_spi_din_4freq_read_fixed*(ce: chip_enable; address: uint8; channel: uint8): uint32 {.
     cdecl, importc: "pi_spi_din_4freq_read_fixed", header: "pi_spi_din.h".}
-proc pi_spi_din_4freq_read_variable*(ce: chip_enable; address: uint8_t;
-                                    channel: uint8_t): uint32_t {.cdecl,
+proc pi_spi_din_4freq_read_variable*(ce: chip_enable; address: uint8;
+                                    channel: uint8): uint32 {.cdecl,
     importc: "pi_spi_din_4freq_read_variable", header: "pi_spi_din.h".}
-proc pi_spi_din_4freq_read_pulse*(ce: chip_enable; address: uint8_t; channel: uint8_t): uint32_t {.
+proc pi_spi_din_4freq_read_pulse*(ce: chip_enable; address: uint8; channel: uint8): uint32 {.
     cdecl, importc: "pi_spi_din_4freq_read_pulse", header: "pi_spi_din.h".}
-proc pi_spi_din_4freq_read_di*(ce: chip_enable; address: uint8_t): uint8_t {.cdecl,
+proc pi_spi_din_4freq_read_di*(ce: chip_enable; address: uint8): uint8 {.cdecl,
     importc: "pi_spi_din_4freq_read_di", header: "pi_spi_din.h".}
 proc vpe_2901a_init*() {.cdecl, importc: "vpe_2901a_init", header: "pi_spi_din.h".}
-proc vpe_2901a_2ao_write_single*(channel: uint8_t; counts: uint16_t) {.cdecl,
+proc vpe_2901a_2ao_write_single*(channel: uint8; counts: uint16) {.cdecl,
     importc: "vpe_2901a_2ao_write_single", header: "pi_spi_din.h".}
-proc vpe_2901a_2ko_write_single*(channel: uint8_t; value: uint8_t) {.cdecl,
+proc vpe_2901a_2ko_write_single*(channel: uint8; value: uint8) {.cdecl,
     importc: "vpe_2901a_2ko_write_single", header: "pi_spi_din.h".}
-proc vpe_2901a_2di_read_single*(channel: uint8_t): uint8_t {.cdecl,
+proc vpe_2901a_2di_read_single*(channel: uint8): uint8 {.cdecl,
     importc: "vpe_2901a_2di_read_single", header: "pi_spi_din.h".}
 const
   VPE_2901A_SDAFE_1* = 6
   VPE_2901A_SDAFE_2* = 7
 
 proc vpe_3011b_init*() {.cdecl, importc: "vpe_3011b_init", header: "pi_spi_din.h".}
-proc vpe_3011b_4ko_write_single*(channel: uint8_t; value: uint8_t) {.cdecl,
+proc vpe_3011b_4ko_write_single*(channel: uint8; value: uint8) {.cdecl,
     importc: "vpe_3011b_4ko_write_single", header: "pi_spi_din.h".}
-proc vpe_3011b_8di_read*(): uint8_t {.cdecl, importc: "vpe_3011b_8di_read",
+proc vpe_3011b_8di_read*(): uint8 {.cdecl, importc: "vpe_3011b_8di_read",
                                    header: "pi_spi_din.h".}
-proc vpe_3011b_8di_read_single*(channel: uint8_t): uint8_t {.cdecl,
+proc vpe_3011b_8di_read_single*(channel: uint8): uint8 {.cdecl,
     importc: "vpe_3011b_8di_read_single", header: "pi_spi_din.h".}
 const
   VPE_3011B_SDAFE_1* = 6
@@ -85,13 +85,13 @@ type
 
 type
   sdafe_reading* {.importc: "sdafe_reading", header: "pi_spi_din.h", bycopy.} = object
-    value* {.importc: "value".}: uint16_t
+    value* {.importc: "value".}: uint16
     status* {.importc: "status".}: sdafe_status
-    counts* {.importc: "counts".}: uint16_t
+    counts* {.importc: "counts".}: uint16
     `type`* {.importc: "type".}: sdafe_type
 
 
-proc sdafe_set_type*(channel: uint8_t; `type`: sdafe_type) {.cdecl,
+proc sdafe_set_type*(channel: uint8; `type`: sdafe_type) {.cdecl,
     importc: "sdafe_set_type", header: "pi_spi_din.h".}
-proc sdafe_read*(channel: uint8_t): sdafe_reading {.cdecl, importc: "sdafe_read",
+proc sdafe_read*(channel: uint8): sdafe_reading {.cdecl, importc: "sdafe_read",
     header: "pi_spi_din.h".}

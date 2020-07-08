@@ -3,6 +3,7 @@ import nimler/nimler/codec
 
 import wrappers/gpio as gpio
 import wrappers/pi_spi as pi_spi
+import wrappers/pi_spi_din as pi_spi_din
 
 using
   env: ptr ErlNifEnv
@@ -134,143 +135,133 @@ func pi_spi_8ai_16b_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: []
 
     return env.to_term( (AtomOk, res.int) )
 
-func pi_spi_8ai_16b_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
-  withPacked():
-    let ctype = env.from_term(argv[0], uint32).get().uint8
-    let res = pi_spi.pi_spi_8ai_16b_read(ctype) 
-    return env.to_term( (AtomOk, res.int) )
-
 
 # ======================================================================= #
 # PI_SPI_DIN
 # ======================================================================= #
 func pi_spi_din_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   withPacked():
-    pi_spi.pi_spi_din_init() 
+    pi_spi_din.pi_spi_din_init() 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ao_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   withPacked():
-    pi_spi.pi_spi_din_4ao_init() 
+    pi_spi_din.pi_spi_din_4ao_init() 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let addres = env.from_term(argv[0], uint32).get().uint8
+    let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
     let counts = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4ao_write_single(address, channel, counts) 
+    pi_spi_din.pi_spi_din_4ao_write_single(address, channel, counts) 
 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ao_close(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   withPacked():
-    pi_spi.pi_spi_din_4ao_close() 
+    pi_spi_din.pi_spi_din_4ao_close() 
 
     return env.to_term( AtomOk )
 
 func pi_spi_din_8ai_read_single(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_8ai_read_single(ce, channel) 
-
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_8ai_read_single(ce, channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_8di_read(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_8di_read(ce, address) 
-
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_8di_read(ce, address) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_8di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_8di_read_single(ce, address, channel) 
-
-    return env.to_term( AtomOk )
+    let  res = pi_spi_din.pi_spi_din_8di_read_single(ce, address, channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_8di_init(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_8di_init(ce, address) 
-
+    pi_spi_din.pi_spi_din_8di_init(ce, address) 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ko_write(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let state = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4ko_write(ce, address, state) 
+    pi_spi_din.pi_spi_din_4ko_write(ce, address, state) 
 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ko_write_single(env; argc; argv): ErlNifTerm {.nif(arity=4), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
     let state = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4ko_write_single(ce, address, channel, state) 
+    pi_spi_din.pi_spi_din_4ko_write_single(ce, address, channel, state) 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4ko_init(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4ko_init(ce, address) 
+    pi_spi_din.pi_spi_din_4ko_init(ce, address) 
     return env.to_term( AtomOk )
 
 func pi_spi_din_4freq_read_fixed(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4freq_read_fixed(ce, address, channel) 
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_4freq_read_fixed(ce, address, channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_4freq_read_variable(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4freq_read_variable(ce, address, channel) 
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_4freq_read_variable(ce, address, channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_4freq_read_pulse(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4freq_read_pulse(ce, address, channel) 
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_4freq_read_pulse(ce, address, channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func pi_spi_din_4freq_read_di(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.pi_spi_din_4freq_read_di(ce, address) 
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.pi_spi_din_4freq_read_di(ce, address) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 func vpe_2901a_init(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
   withPacked():
-    let ce = env.from_term(argv[0], uint32).get().uint8
+    let ce = env.from_term(argv[0], uint32).get().chip_enable
     let address = env.from_term(argv[0], uint32).get().uint8
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.vpe_2901a_init() 
+    pi_spi_din.vpe_2901a_init() 
     return env.to_term( AtomOk )
 
 func vpe_2901a_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
   withPacked():
     let channel = env.from_term(argv[0], uint32).get().uint8
     let counts = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.vpe_2901a_2ao_write_single(channel, counts) 
+    pi_spi_din.vpe_2901a_2ao_write_single(channel, counts) 
 
     return env.to_term( AtomOk )
 
@@ -278,14 +269,14 @@ func vpe_2901a_2ko_write_single(env; argc; argv): ErlNifTerm {.nif(arity=2), rai
   withPacked():
     let channel = env.from_term(argv[0], uint32).get().uint8
     let value = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.vpe_2901a_2ko_write_single(channel, value) 
+    pi_spi_din.vpe_2901a_2ko_write_single(channel, value) 
     return env.to_term( AtomOk )
 
 func vpe_2901a_2di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
   withPacked():
     let channel = env.from_term(argv[0], uint32).get().uint8
-    pi_spi.vpe_2901a_2di_read_single(channel) 
-    return env.to_term( AtomOk )
+    let res = pi_spi_din.vpe_2901a_2di_read_single(channel) 
+    return env.to_term( (AtomOk, res.uint32,) )
 
 export_nifs(
   "Elixir.WidgetLordsNifs",

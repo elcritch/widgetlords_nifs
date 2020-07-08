@@ -267,6 +267,17 @@ NIM_BOOL* nimErr_;
 	popFrame();
 	return result;
 }
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__vdCW0ek6GZP2dUGWHcyS8g)(ErlNifEnv* env, NU32 V) {
+	unsigned long long result;
+	nimfr_("to_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = (unsigned long long)0;
+	nimln_(72, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = enif_make_ulong(env, ((unsigned long) (V)));
+	popFrame();
+	return result;
+}
 N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___ZThblwUJ9bUBOAapoYTQn6A)(tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g* dest) {
 	eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&(*dest).val));
 }
