@@ -27,6 +27,9 @@ defmodule WidgetLordsNifs do
   # @spec spi_transfer(data :: list(uint8), len :: uint32) :: :ok
   # def spi_transfer(_data, _len), do: raise "not implemented"
 
+  # ======================================================================= #
+  # PI_SPI
+  # ======================================================================= #
   @spec pi_spi_init() :: :ok
   def pi_spi_init(), do: raise "not implemented"
 
@@ -56,6 +59,29 @@ defmodule WidgetLordsNifs do
 
   @spec pi_spi_8ai_16b_read(ctype :: uint8) :: uint16
   def pi_spi_8ai_16b_read(_ctype), do: raise "not implemented"
+
+  # ======================================================================= #
+  # PI_SPI_DIN
+  # ======================================================================= #
+  proc pi_spi_din_init()
+  proc pi_spi_din_4ao_init()
+  proc pi_spi_din_4ao_write_single(address: uint8_t; channel: uint8_t; counts: uint16_t)
+  proc pi_spi_din_4ao_close()
+  proc pi_spi_din_8ai_read_single(ce: chip_enable; channel: uint8_t): uint16_t
+  proc pi_spi_din_8di_read(ce: chip_enable; address: uint8_t): uint8_t
+  proc pi_spi_din_8di_read_single(ce: chip_enable; address: uint8_t; channel: uint8_t): uint8_t
+  proc pi_spi_din_8di_init(ce: chip_enable; address: uint8_t)
+  proc pi_spi_din_4ko_write(ce: chip_enable; address: uint8_t; state: uint8_t)
+  proc pi_spi_din_4ko_write_single(ce: chip_enable; address: uint8_t; channel: uint8_t; state: uint8_t)
+  proc pi_spi_din_4ko_init(ce: chip_enable; address: uint8_t)
+  proc pi_spi_din_4freq_read_fixed(ce: chip_enable; address: uint8_t; channel: uint8_t): uint32_t
+  proc pi_spi_din_4freq_read_variable(ce: chip_enable; address: uint8_t; channel: uint8_t): uint32_t
+  proc pi_spi_din_4freq_read_pulse(ce: chip_enable; address: uint8_t; channel: uint8_t): uint32_t
+  proc pi_spi_din_4freq_read_di(ce: chip_enable; address: uint8_t): uint8_t
+  proc vpe_2901a_init()
+  proc vpe_2901a_2ao_write_single(channel: uint8_t; counts: uint16_t)
+  proc vpe_2901a_2ko_write_single(channel: uint8_t; value: uint8_t)
+  proc vpe_2901a_2di_read_single(channel: uint8_t): uint8_t
 
   def load_nif do
     sofile =
