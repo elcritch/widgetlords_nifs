@@ -35,7 +35,7 @@ BUILD  = $(APP_PATH)/obj
 
 NIF = $(PREFIX)/widgetlords_nifs.so
 
-CFLAGS ?= -O2 -Wall 
+CFLAGS ?= -O2 -Wall -D NIM_INTBITS=32
 
 # Check that we're on a supported build platform
 ifeq ($(CROSSCOMPILE),)

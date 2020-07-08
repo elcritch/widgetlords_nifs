@@ -11,13 +11,27 @@ nim: clean
 		--gc:arc \
 		-d:debug \
 		--no_main \
-		--nim_cache:"$(NIMCACHE)" \
+		--nim_cache:"$(NIMCACHE)32" \
 		--nimble_path:"$(NIMBLE)/pkgs" \
 		--compile_only \
 		--gen_script \
+		--cpu:arm \
 		libwidgetlords_nifs.nim
 
-	cp -v $(NIMLIB)/nimbase.h  $(NIMCACHE)/nimbase.h
+	cp -v $(NIMLIB)/nimbase.h  $(NIMCACHE)32/nimbase.h
+
+	nim c \
+		--gc:arc \
+		-d:debug \
+		--no_main \
+		--nim_cache:"$(NIMCACHE)64" \
+		--nimble_path:"$(NIMBLE)/pkgs" \
+		--compile_only \
+		--gen_script \
+		--cpu:amd64 \
+		libwidgetlords_nifs.nim
+
+	cp -v $(NIMLIB)/nimbase.h  $(NIMCACHE)64/nimbase.h
 
 # test-local: clean
 # 	nim c \
@@ -28,4 +42,6 @@ nim: clean
 # 	cp -v $(NIMLIB)/nimbase.h  $(NIMCACHE)/nimbase.h
 
 clean:
+	rm -Rf $(NIMCACHE)32
+	rm -Rf $(NIMCACHE)64
 	rm -Rf $(NIMCACHE)
