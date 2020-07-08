@@ -35,7 +35,7 @@
 /home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/nimler/codec.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/collections/tables.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/hashes.nim
-/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/controller.nim
+/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/wrappers/gpio.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/system/bitmasks.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/nimhcr.nim
 /home/elcritch/.asdf/installs/nim/devel/lib/pure/collections/hashcommon.nim

@@ -18,9 +18,12 @@ func gpio_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   # let a1 = env.from_term(argv[0], int32).get(0)
   # let a2 = env.from_term(argv[1], int32).get(0)
   # let r = a1 + a2
-  gpio_init()
+  let err = gpio_init()
 
-  return env.to_term(AtomOk)
+  if err >=  0:
+    return env.to_term(AtomOk)
+  else:
+    return env.to_term( (AtomError, err,) )
 
 
 export_nifs(

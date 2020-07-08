@@ -46,12 +46,12 @@ ifeq ($(CROSSCOMPILE),)
         # LDFLAGS += -undefined dynamic_lookup -dynamiclib
     else
         LDFLAGS += -fPIC -shared
-        CFLAGS += -fPIC
+		CFLAGS += -fPIC  -Inimsrc/libwidgetlords/include 
     endif
 else
 	# Crosscompiled build
 	LDFLAGS += -fPIC -shared
-	CFLAGS += -fPIC
+	CFLAGS += -fPIC  -Inimsrc/libwidgetlords/include 
 endif
 
 # Set Erlang-specific compile and linker flags
@@ -60,8 +60,14 @@ ERL_LDFLAGS ?= -L$(ERL_EI_LIBDIR) -lei
 
 NIM_SRC := $(wildcard nimsrc/_nimcache/*.c)
 NIM_HDRS := $(wildcard nimsrc/_nimcache/*.h)
-OBJ = $(NIM_SRC:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
 
+LW_HDRS := $(wildcard nimsrc/libwidgetlords/src/*.c)
+LW_HDRS := $(wildcard nimsrc/libwidgetlords/include/*.h)
+
+NIM_OBJS = $(NIM_SRC:nimsrc/_nimcache/%.c=$(BUILD)/%.o)
+LW_OBJS = $(NIM_SRC:nimsrc/libwidgetlords/src/%.c=$(BUILD)/%.o)
+
+OBJS := $(LW_OBJS) $(NIM_OBJS) 
 
 calling_from_make:
 	mix compile
@@ -70,7 +76,7 @@ all: install
 
 install: $(PREFIX) $(BUILD) $(NIF)
 
-$(OBJ): $(HEADERS)
+$(OBJS): $(HEADERS)
 
 $(BUILD)/%.o: nimsrc/_nimcache/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
@@ -78,7 +84,7 @@ $(BUILD)/%.o: nimsrc/_nimcache/%.c
 $(BUILD)/%.o: nimsrc/%.c
 	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
 
-$(NIF): $(OBJ)
+$(NIF): $(OBJS)
 	$(CC) -o $@ $(ERL_LDFLAGS) $(LDFLAGS) $^
 
 $(PREFIX) $(BUILD):
@@ -90,7 +96,7 @@ clean:
 	@echo ERL_EI_LIBDIR: $(ERL_EI_LIBDIR)
 	@echo ERL_CFLAGS: $(ERL_CFLAGS)
 	@echo ERL_LDFLAGS: $(ERL_LDFLAGS)
-	@echo OBJ: $(OBJ)
-	$(RM) $(NIF) $(OBJ)
+	@echo OBJ: $(OBJS)
+	$(RM) $(NIF) $(OBJS)
 
 .PHONY: all clean calling_from_make install

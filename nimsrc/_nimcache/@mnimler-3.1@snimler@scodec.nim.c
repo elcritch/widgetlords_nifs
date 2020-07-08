@@ -212,3 +212,14 @@ N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__Ni0jSAiz9cWFkZ9aJeQUTbjg)(E
 	popFrame();
 	return result;
 }
+N_LIB_PRIVATE N_NIMCALL(unsigned long long, to_term__cldzAvA0dkNFFgPjRQc3PA)(ErlNifEnv* env, NI V) {
+	unsigned long long result;
+	nimfr_("to_term", "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = (unsigned long long)0;
+	nimln_(56, "/home/elcritch/projects/pt/widgetlords_nifs/nimsrc/nimler-3.1/n"
+"imler/codec.nim");
+	result = enif_make_int64(env, ((long long) (V)));
+	popFrame();
+	return result;
+}

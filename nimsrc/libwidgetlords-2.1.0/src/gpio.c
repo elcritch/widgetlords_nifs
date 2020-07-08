@@ -150,7 +150,8 @@ int8_t gpio_read(uint32_t pin)
 {
   if(pin >= handles_len) // avoid segfaults
   {
-    return ERR_GPIO_PIN_NUMBER_INVALID;
+    // FIXME: verify how current users handle -1  ... 
+    return -1 // ERR_GPIO_PIN_NUMBER_INVALID;
   }
 
   struct gpiohandle_data data;
