@@ -9,11 +9,21 @@ using
   argc: cint
   argv: ErlNifArgs
 
+let ArgumentErrorAtom = ErlAtom(val: "argument_error")
+
+template withPacked(body: untyped) =
+  try:
+    body
+  except UnpackError:
+    return env.to_term( (AtomError, ArgumentErrorAtom,) )
+
 func add_numbers(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
-  let a1 = env.from_term(argv[0], int32).get(0)
-  let a2 = env.from_term(argv[1], int32).get(0)
-  let r = a1 + a2
-  return env.to_term(r)
+  withPacked():
+    let a1 = env.from_term(argv[0], int32).get()
+    let a2 = env.from_term(argv[1], int32).get()
+    let r = a1 + a2
+    return env.to_term(r)
+
 
 func gpio_init(env; argc; argv): ErlNifTerm {.nif(arity=0), raises: [].} =
   # let a1 = env.from_term(argv[0], int32).get(0)

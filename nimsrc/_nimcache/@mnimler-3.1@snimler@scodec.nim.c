@@ -73,6 +73,7 @@ static N_INLINE(void, popFrame)(void);
 N_LIB_PRIVATE N_NOINLINE(void, raiseRangeErrorI)(NI64 i, NI64 a, NI64 b);
 static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s);
 static N_INLINE(tyObject_Option__rVkI1RILdi0akg69brivmzg, some__3uXaIMXFnDdgZxwHKhW7igoptions)(NU32 val);
+N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ)(NimStringV2* dest);
 
 /* section: NIM_merge_VARS */
 extern NIM_THREADVAR NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
@@ -265,4 +266,7 @@ NIM_BOOL* nimErr_;
 	}BeforeRet_: ;
 	popFrame();
 	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___ZThblwUJ9bUBOAapoYTQn6A)(tyObject_ErlAtom__a49atspohaYlyxys5xHmw1g* dest) {
+	eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&(*dest).val));
 }
