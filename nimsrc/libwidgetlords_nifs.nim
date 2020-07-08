@@ -2,6 +2,7 @@ import nimler/nimler
 import nimler/nimler/codec
 
 import wrappers/gpio as gpio
+import wrappers/pi_spi as pi_spi
 
 using
   env: ptr ErlNifEnv
@@ -44,6 +45,70 @@ func gpio_read(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
   else:
     return env.to_term( (AtomError, err,) )
 
+func pi_spi_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
+  let channel = env.from_term(argv[0], uint32).get()
+  let counts = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  pi_spi.pi_spi_2ao_write_single*(channel, counts, ctype)
+
+  return env.to_term(AtomOk)
+
+func pi_spi_2ao_write_single(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let channel = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  let res = pi_spi.pi_spi_8ai_read_single*(channel, ctype)
+
+  return env.to_term( (AtomOk, res.int) )
+
+func pi_spi_8di_read(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let address = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  let res = pi_spi.pi_spi_8di_read(address, ctype) 
+
+  return env.to_term( (AtomOk, res.int) )
+
+func pi_spi_8di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
+  let address = env.from_term(argv[0], uint32).get()
+  let channel = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  let res = pi_spi.pi_spi_8di_read_single(address, channel, ctype) 
+
+  return env.to_term( (AtomOk, res.int) )
+
+func pi_spi_8di_init(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let address = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  pi_spi.pi_spi_8di_init(address, ctype) 
+
+  return env.to_term( AtomOk )
+
+func pi_spi_8ko_write(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let data = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  pi_spi.pi_spi_8ko_write(data, ctype) 
+
+  return env.to_term( AtomOk )
+
+func pi_spi_8ko_write_single(env; argc; argv): ErlNifTerm {.nif(arity=3), raises: [].} =
+  let channel = env.from_term(argv[0], uint32).get()
+  let data = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  pi_spi.pi_spi_8ko_write_single(channel, data, ctype) 
+
+  return env.to_term( AtomOk )
+
+func pi_spi_8ai_16b_set_channel(env; argc; argv): ErlNifTerm {.nif(arity=2), raises: [].} =
+  let channel = env.from_term(argv[0], uint32).get()
+  let ctype = env.from_term(argv[0], uint32).get()
+  pi_spi.pi_spi_8ai_16b_set_channel(channel, ctype) 
+
+  return env.to_term( AtomOk )
+
+func pi_spi_8di_read_single(env; argc; argv): ErlNifTerm {.nif(arity=1), raises: [].} =
+  let ctype = env.from_term(argv[0], uint32).get()
+  let res = pi_spi.pi_spi_8ai_16b_read(ctype) 
+
+  return env.to_term( (AtomOk, res.int) )
 
 export_nifs(
   "Elixir.WidgetLordsNifs",
@@ -51,6 +116,15 @@ export_nifs(
     add_numbers,
     gpio_init,
     gpio_configure,
-    gpio_read
+    gpio_read,
+    pi_spi_2ao_write_single,
+    pi_spi_8ai_read_single,
+    pi_spi_8di_read,
+    pi_spi_8di_read_single,
+    pi_spi_8di_init,
+    pi_spi_8ko_write,
+    pi_spi_8ko_write_single,
+    pi_spi_8ai_16b_set_channel,
+    pi_spi_8ai_16b_read,
   ]
 )
